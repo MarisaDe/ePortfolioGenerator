@@ -78,6 +78,7 @@ public class StartupConstants {
     public static String    CSS_CLASS_SITE_TOOLBAR = "site_toolbar_button";
     public static String    CSS_CLASS_THEMES_TOOLBOX = "themes_toolbox_button";
     public static String    CSS_CLASS_PAGE_EDITOR = "page_editor";
+    public static String    CSS_CLASS_WORKSPACE = "workspace";
     
     // edit component dialogue boxes
     public static String    CSS_CLASS_EDIT_BANNER_DIALOGUE = "edit_banner_dialogue";
