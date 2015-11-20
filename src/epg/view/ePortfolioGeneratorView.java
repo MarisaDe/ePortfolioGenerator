@@ -4,15 +4,13 @@ import static epg.StartupConstants.CSS_CLASS_COMP_TOOLBOX;
 import static epg.StartupConstants.CSS_CLASS_COMP_TOOLBOX_BUTTON;
 import static epg.StartupConstants.CSS_CLASS_FILE_TOOLBAR;
 import static epg.StartupConstants.CSS_CLASS_FILE_TOOLBAR_BUTTON;
+import static epg.StartupConstants.CSS_CLASS_FILE_TOOLBAR_EXIT_BUTTON;
 import static epg.StartupConstants.CSS_CLASS_PAGE_EDITOR;
+import static epg.StartupConstants.CSS_CLASS_WORKSPACE_MODE_TOOLBAR;
+import static epg.StartupConstants.CSS_CLASS_WORKSPACE_MODE_TOOLBAR_BUTTON;
 import static epg.StartupConstants.ICON_ADD_IMAGE;
 import static epg.StartupConstants.ICON_ADD_SLIDESHOW;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
-import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -37,7 +35,9 @@ import static epg.StartupConstants.ICON_SAVE_EPG;
 import static epg.StartupConstants.ICON_LOAD_EPG;
 import static epg.StartupConstants.ICON_EXPORT_EPG;
 import static epg.StartupConstants.ICON_EXIT_EPG;
+import static epg.StartupConstants.ICON_PAGE_EDITOR;
 import static epg.StartupConstants.ICON_SAVEAS_EPG;
+import static epg.StartupConstants.ICON_SITE_VIEWER;
 import static epg.StartupConstants.STYLE_SHEET_UI;
 import static epg.StartupConstants.TOOLTIP_ADD_IMAGE_COMP;
 import static epg.StartupConstants.TOOLTIP_ADD_SS_COMP;
@@ -47,8 +47,10 @@ import static epg.StartupConstants.TOOLTIP_EXIT_EPG;
 import static epg.StartupConstants.TOOLTIP_EXPORT_EPG;
 import static epg.StartupConstants.TOOLTIP_LOAD_EPG;
 import static epg.StartupConstants.TOOLTIP_NEW_EPG;
+import static epg.StartupConstants.TOOLTIP_PAGE_EDITOR;
 import static epg.StartupConstants.TOOLTIP_SAVEAS_EPG;
 import static epg.StartupConstants.TOOLTIP_SAVE_EPG;
+import static epg.StartupConstants.TOOLTIP_SITE_VIEWER;
 
 
 import properties_manager.PropertiesManager;
@@ -70,6 +72,7 @@ public class ePortfolioGeneratorView {
     // THIS PANE ORGANIZES THE BIG PICTURE CONTAINERS FOR THE
     // APPLICATION GUI
     BorderPane epgPane;
+    FlowPane topBars;
 
     // THIS IS THE TOP TOOLBAR AND ITS CONTROLS
     FlowPane fileToolbarPane;
@@ -82,22 +85,28 @@ public class ePortfolioGeneratorView {
     
     // WORKSPACE
     HBox workspace;
+    
+    //Workspace Mode Toolbar
+    
+    FlowPane workspaceModeToolbar;
+    Button siteViewerButton;
+    Button pageEditButton;
 
     // This will go in the Comp Toolbox section
-    VBox compToolbox;
+    HBox compToolbox;
     Button addImageButton;
     Button addTextButton;
     Button addVideoButton;
     Button addSSButton;
     
     // FOR THE SLIDE SHOW TITLE
-    FlowPane titlePane;
-    Label titleLabel;
-    TextField titleTextField;
+  //  FlowPane titlePane;
+  //  Label titleLabel;
+   // TextField titleTextField;
     
     // AND THIS WILL GO IN THE CENTER
     ScrollPane slidesEditorScrollPane;
-    VBox slidesEditorPane;
+    HBox slidesEditorPane;
 
     // THIS IS THE SLIDE SHOW WE'RE WORKING WITH
  //   SlideShowModel slideShow;
@@ -145,6 +154,9 @@ public class ePortfolioGeneratorView {
 	// THE TOOLBAR ALONG THE NORTH
 	initFileToolbar();
 
+        //THE TOOLBAR UNDER THE FILE TOOLBAR
+        initWorkSpaceToolbar();
+        
         // INIT THE CENTER WORKSPACE CONTROLS BUT DON'T ADD THEM
 	// TO THE WINDOW YET
 	initCompToolbox();
@@ -171,7 +183,7 @@ public class ePortfolioGeneratorView {
         workspace.getStyleClass().add(CSS_CLASS_PAGE_EDITOR);
 	
 	// THIS WILL GO IN THE LEFT SIDE OF THE SCREEN
-	compToolbox = new VBox();
+	compToolbox = new HBox();
 	compToolbox.getStyleClass().add(CSS_CLASS_COMP_TOOLBOX);
 	addImageButton = this.initChildButton(compToolbox,		ICON_ADD_IMAGE,	    TOOLTIP_ADD_IMAGE_COMP,	    CSS_CLASS_COMP_TOOLBOX_BUTTON,  true);
 	addTextButton = this.initChildButton(compToolbox,		ICON_ADD_TEXT,	    TOOLTIP_ADD_TEXT_COMP,	    CSS_CLASS_COMP_TOOLBOX_BUTTON,  true);
@@ -179,7 +191,7 @@ public class ePortfolioGeneratorView {
         addSSButton = this.initChildButton(compToolbox,		ICON_ADD_SLIDESHOW,	    TOOLTIP_ADD_SS_COMP,	    CSS_CLASS_COMP_TOOLBOX_BUTTON,  true);
 	
 	// AND THIS WILL GO IN THE CENTER
-	slidesEditorPane = new VBox();
+	slidesEditorPane = new HBox();
 	slidesEditorScrollPane = new ScrollPane(slidesEditorPane);
         //slidesEditorPane.getStyleClass().add(CSS_CLASS_WORKSPACE_BG);
 	//initTitleControls();
@@ -233,8 +245,9 @@ public class ePortfolioGeneratorView {
      * the application window. These are related to file management.
      */
     private void initFileToolbar() {
+        Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
 	fileToolbarPane = new FlowPane();
-        
+        fileToolbarPane.setMinWidth(1280);
         fileToolbarPane.getStyleClass().add(CSS_CLASS_FILE_TOOLBAR);
         // HERE ARE OUR FILE TOOLBAR BUTTONS, NOTE THAT SOME WILL
 	// START AS ENABLED (false), WHILE OTHERS DISABLED (true)
@@ -244,28 +257,43 @@ public class ePortfolioGeneratorView {
 	saveEPGButton = initChildButton(fileToolbarPane, ICON_SAVE_EPG,	TOOLTIP_SAVE_EPG,    CSS_CLASS_FILE_TOOLBAR_BUTTON, true);
         saveAsEPGButton = initChildButton(fileToolbarPane, ICON_SAVEAS_EPG,	TOOLTIP_SAVEAS_EPG,    CSS_CLASS_FILE_TOOLBAR_BUTTON, true);
 	exportEPGButton = initChildButton(fileToolbarPane, ICON_EXPORT_EPG,	TOOLTIP_EXPORT_EPG,   CSS_CLASS_FILE_TOOLBAR_BUTTON, true);
-	exitEPGButton = initChildButton(fileToolbarPane, ICON_EXIT_EPG, TOOLTIP_EXIT_EPG, CSS_CLASS_FILE_TOOLBAR_BUTTON, false);
+	exitEPGButton = initChildButton(fileToolbarPane, ICON_EXIT_EPG, TOOLTIP_EXIT_EPG, CSS_CLASS_FILE_TOOLBAR_EXIT_BUTTON, false);
     }
+    
+    
+    
+    
+        private void initWorkSpaceToolbar() {
+        Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();    
+	workspaceModeToolbar = new FlowPane();  
+        workspaceModeToolbar.getStyleClass().add(CSS_CLASS_WORKSPACE_MODE_TOOLBAR);
+        workspaceModeToolbar.setMinWidth(1280);
+        // HERE ARE OUR FILE TOOLBAR BUTTONS, NOTE THAT SOME WILL
+	// START AS ENABLED (false), WHILE OTHERS DISABLED (true)
+	PropertiesManager props = PropertiesManager.getPropertiesManager();
+	pageEditButton = initChildButton(workspaceModeToolbar, ICON_PAGE_EDITOR,	TOOLTIP_PAGE_EDITOR,	    CSS_CLASS_WORKSPACE_MODE_TOOLBAR_BUTTON, false);
+	siteViewerButton = initChildButton(workspaceModeToolbar, ICON_SITE_VIEWER,	TOOLTIP_SITE_VIEWER,    CSS_CLASS_WORKSPACE_MODE_TOOLBAR_BUTTON, false);
+    }
+    
+    
 
     private void initWindow(String windowTitle) {
 	// SET THE WINDOW TITLE
 	primaryStage.setTitle(windowTitle);
-        
 
-
-	// GET THE SIZE OF THE SCREEN
-	Screen screen = Screen.getPrimary();
-	Rectangle2D bounds = screen.getVisualBounds();
 
 	// AND USE IT TO SIZE THE WINDOW
-	primaryStage.setX(bounds.getMinX());
-	primaryStage.setY(bounds.getMinY());
-	primaryStage.setWidth(bounds.getWidth());
-	primaryStage.setHeight(bounds.getHeight());
+	primaryStage.setWidth(1280);
+	primaryStage.setHeight(720);
 
         // SETUP THE UI, NOTE WE'LL ADD THE WORKSPACE LATER
 	epgPane = new BorderPane();
-	epgPane.setTop(fileToolbarPane);	
+        topBars = new FlowPane();
+   
+        topBars.getChildren().add(fileToolbarPane);
+        topBars.getChildren().add(workspaceModeToolbar);
+	epgPane.setTop(topBars);
+       // epgPane.setTop(workspaceModeToolbar);
 	primaryScene = new Scene(epgPane);
 	
         // NOW TIE THE SCENE TO THE WINDOW, SELECT THE STYLESHEET
@@ -297,7 +325,7 @@ public class ePortfolioGeneratorView {
 	button.getStyleClass().add(cssClass);
 	button.setDisable(disabled);
 	button.setGraphic(new ImageView(buttonImage));
-	Tooltip buttonTooltip = new Tooltip(props.getProperty(tooltip));
+	Tooltip buttonTooltip = new Tooltip(tooltip);
 	button.setTooltip(buttonTooltip);
 	toolbar.getChildren().add(button);
 	return button;

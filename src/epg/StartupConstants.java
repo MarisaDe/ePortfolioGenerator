@@ -66,8 +66,9 @@ public class StartupConstants {
     // edit toolbars and buttons
     public static String    CSS_CLASS_FILE_TOOLBAR = "file_toolbar";
     public static String    CSS_CLASS_FILE_TOOLBAR_BUTTON = "file_toolbar_button";
+    public static String    CSS_CLASS_FILE_TOOLBAR_EXIT_BUTTON = "file_toolbar_exit_button";
     public static String    CSS_CLASS_WORKSPACE_MODE_TOOLBAR = "workspace_mode_toolbar";
-    public static String    CSS_CLASS_WORKSPACE_MODE_TOOLBAR_BUTTON = "workspace_mode_toolbar_buton";
+    public static String    CSS_CLASS_WORKSPACE_MODE_TOOLBAR_BUTTON = "workspace_mode_toolbar_button";
     public static String    CSS_CLASS_NAME = "name";
     public static String    CSS_CLASS_FOOTER = "footer";
     public static String    CSS_CLASS_COMP_TOOLBOX = "comp_toolbox";

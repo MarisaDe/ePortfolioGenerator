@@ -8,7 +8,32 @@ and open the template in the editor.
     Author     : Marisa
 */
 
-.comp_toolbox{
+.file_toolbar{
+    
+    -fx-alignment: CENTER-LEFT;
+    -fx-background-color: #887EE9;
+    -fx-border-color: #BFB9F6;
+ 
+}
+.file_toolbar_button{
     
     -fx-background-color:transparent;
+}
+.file_toolbar_exit_button{
+    
+    -fx-background-color:transparent;
+    -fx-alignment: bottom-right;
+}
+.workspace_mode_toolbar{
+    
+    -fx-alignment: CENTER;
+    -fx-background-color: pink;
+    -fx-border-color: #BFB9F6; 
+    
+}
+.workspace_mode_toolbar_button{
+    
+    -fx-alignment: CENTER;
+    -fx-background-color:transparent;
+    -fx-padding: 5px 20px 5px 5px;
 }
