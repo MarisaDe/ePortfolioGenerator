@@ -65,7 +65,9 @@ import static epg.StartupConstants.TOOLTIP_PAGE_EDITOR;
 import static epg.StartupConstants.TOOLTIP_SAVEAS_EPG;
 import static epg.StartupConstants.TOOLTIP_SAVE_EPG;
 import static epg.StartupConstants.TOOLTIP_SITE_VIEWER;
+import epg.controller.CompController;
 import epg.controller.FileController;
+import epg.controller.SiteController;
 import java.net.MalformedURLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -160,6 +162,8 @@ public class ePortfolioGeneratorView {
     //Controllers
     
     FileController fileController = new FileController(this);
+    CompController compController = new CompController(this);
+    SiteController siteController = new SiteController(this);
     
     public TabPane getWorkSpace(){
         return workspace;
@@ -314,6 +318,39 @@ public class ePortfolioGeneratorView {
             pageEditButton.setDisable(true);
        
         });   
+     
+     addPageButton.setOnAction(e -> {
+        try {    
+            siteController.handleAddPageRequest();
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(ePortfolioGeneratorView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        });      
+     
+     addImageButton.setOnAction(e -> {
+        try {
+            compController.handleAddImageRequest();
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(ePortfolioGeneratorView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        });  
+     
+      addTextButton.setOnAction(e -> {
+        try {
+            compController.handleAddTextRequest();
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(ePortfolioGeneratorView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        });
+      
+     addVideoButton.setOnAction(e -> {
+        try {
+            compController.handleAddVideoRequest();
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(ePortfolioGeneratorView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        });     
+     
     }
 
     /*
@@ -385,9 +422,10 @@ public class ePortfolioGeneratorView {
         
     
     private void initWorkSpace() {
-        Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();    
+           
 	workspace = new TabPane();  
         workspace.getStyleClass().add(CSS_CLASS_WORKSPACE);
+        workspace.setMinHeight(600);
         
         // HERE ARE OUR FILE TOOLBAR BUTTONS, NOTE THAT SOME WILL
 	// START AS ENABLED (false), WHILE OTHERS DISABLED (true)
@@ -407,7 +445,7 @@ public class ePortfolioGeneratorView {
         nameFlowPane.setMaxWidth(200);
 	nameFlowPane.getStyleClass().add(CSS_CLASS_COMP_TOOLBOX);
         
-        name = new Label("Name:");
+        name = new Label("Name: ");
         nameFlowPane.getChildren().add(name);
         
         inputName = new TextField();
@@ -417,7 +455,7 @@ public class ePortfolioGeneratorView {
     }
           
     private void initThemeToolbox() {
-        Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+        
 	themeToolbox = new FlowPane();
         themeToolbox.setMaxWidth(200);
         themeToolbox.getStyleClass().add(CSS_CLASS_THEMES_TOOLBOX);
@@ -464,8 +502,8 @@ public class ePortfolioGeneratorView {
         fontChoice.setValue("Really awesome font");
         
         layouts = new Label("Layout:\n");
-        fonts = new Label("Font:\n");
-        colors = new Label("Color:\n");
+        colors = new Label("Color:  \n");
+        fonts = new Label("Font:   \n");
         
         themeToolbox.getChildren().add(layouts);
         themeToolbox.getChildren().add(layoutChoice);

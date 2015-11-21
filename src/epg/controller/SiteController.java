@@ -5,6 +5,9 @@
  */
 package epg.controller;
 
+import epg.dialogue.ImageDialogue;
+import epg.dialogue.TextDialogue;
+import epg.dialogue.VideoDialogue;
 import epg.view.ePortfolioGeneratorView;
 import java.io.File;
 import java.net.MalformedURLException;
@@ -21,42 +24,30 @@ import javafx.scene.web.WebView;
  *
  * @author Marisa
  */
-public class FileController {
+public class SiteController {
     
-    boolean saved; 
-    boolean isSiteViewerOpen;
+    int numOfPages;
+    boolean saved;
     private ePortfolioGeneratorView ui;
     
-     public FileController(ePortfolioGeneratorView initUI) {
+     public SiteController(ePortfolioGeneratorView initUI) {
          
-        isSiteViewerOpen = false;
+        numOfPages = 1; 
         saved = true;
 	ui = initUI;
        
     }
      
-    public void handleSiteViewRequest() throws MalformedURLException 
+    public void handleAddPageRequest() throws MalformedURLException 
     {
-
+        numOfPages++;
         Tab tab = new Tab();
-        tab.setText("Site Viewer");
-        HBox hbox = new HBox();
-        
-        WebView browser = new WebView();
-        WebEngine webEngine = browser.getEngine();
-        browser.setMaxHeight(565);
-        
-        //Opens webview of that specific index file.
-        File f = new File("./DummyPage/2.html");
-        webEngine.load(f.toURI().toURL().toString());
-        
-        hbox.getChildren().add(browser);
+        tab.setText("Page" + numOfPages);
+        HBox hbox = new HBox();      
+        hbox.getChildren().add(new Label("Page" + numOfPages));
         hbox.setAlignment(Pos.CENTER); 
         tab.setContent(hbox);
         ui.getWorkSpace().getTabs().add(tab);
         
-        isSiteViewerOpen = true;
-        
-
-    }
+    }       
 }
