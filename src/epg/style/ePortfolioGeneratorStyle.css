@@ -100,12 +100,27 @@ and open the template in the editor.
 }
 .site_toolbar .label{
     -fx-right-padding: 10px;
+    -fx-padding: 10px 10px 10px 10px;
 }
 
 .site_toolbar_button{
  
     -fx-background-color: transparent;
 }
+
+.list_pages{
+    
+    -fx-alignment: top-left;
+    -fx-background-color: #BFB9F6; 
+}
+
+.list_pages_scroll{
+    
+    -fx-focus-color: #BFB9F6; //selected border color
+    -fx-background: #BFB9F6; //background
+    -fx-background-color: #BFB9F6; //border color
+}
+
 .combo-box{
     -fx-pref-width: 130;
 }
@@ -116,4 +131,36 @@ and open the template in the editor.
 
 .textfield{
     -fx-pref-width: 20;
+}
+
+// Dialogues
+
+.image_dialogue{
+    
+    -fx-alignment: CENTER;
+    -fx-background-color: #BFB9F6;
+}
+
+.text_dialogue{
+    
+    -fx-padding-left: 10px;
+    -fx-padding-down: 10px;
+    -fx-alignment: CENTER;
+}
+
+.text_dialogue_hbox{
+    
+    -fx-alignment: CENTER;
+    -fx-padding-left: 10px;
+}
+
+.text_dialogue_button{
+    
+    -fx-background-color: transparent;
+}
+
+.video_dialogue{
+    
+    -fx-alignment: CENTER;
+    -fx-background-color: #BFB9F6;
 }

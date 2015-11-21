@@ -6,6 +6,8 @@ import static epg.StartupConstants.CSS_CLASS_COMP_TOOLBOX_BUTTON;
 import static epg.StartupConstants.CSS_CLASS_FILE_TOOLBAR;
 import static epg.StartupConstants.CSS_CLASS_FILE_TOOLBAR_BUTTON;
 import static epg.StartupConstants.CSS_CLASS_FILE_TOOLBAR_EXIT_BUTTON;
+import static epg.StartupConstants.CSS_CLASS_LIST_PAGES;
+import static epg.StartupConstants.CSS_CLASS_LIST_PAGES_SCROLL;
 import static epg.StartupConstants.CSS_CLASS_PAGE_EDITOR;
 import static epg.StartupConstants.CSS_CLASS_PAGE_TITLE;
 import static epg.StartupConstants.CSS_CLASS_SITE_TITLE;
@@ -150,9 +152,11 @@ public class ePortfolioGeneratorView {
     TextField inputFooter;
     
     //Site Toolbar
+    ScrollPane listPageScroll;
     FlowPane siteToolbar;
     FlowPane siteTitle;
     FlowPane pageTitleFlowPane;
+    VBox listPages;
     Label pageTitle;
     TextField inputPageTitle;
     Button addPageButton;
@@ -240,17 +244,15 @@ public class ePortfolioGeneratorView {
         initThemeToolbox();
         
         //init footer stuff
-        initFooter();
-        
+        initFooter();      
         
         //init Site Toolbox
         initSiteToolbar();
         
-	// NOW SETUP THE EVENT HANDLERS
+	// Setup Event Handlers
 	initEventHandlers();
 
-	// AND FINALLY START UP THE WINDOW (WITHOUT THE WORKSPACE)
-	// KEEP THE WINDOW FOR LATER
+	// Start up the window 
 	primaryStage = initPrimaryStage;
 	initWindow(windowTitle);
         
@@ -321,7 +323,7 @@ public class ePortfolioGeneratorView {
      
      addPageButton.setOnAction(e -> {
         try {    
-            siteController.handleAddPageRequest();
+            listPages.getChildren().add(siteController.handleAddPageRequest());
         } catch (MalformedURLException ex) {
             Logger.getLogger(ePortfolioGeneratorView.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -335,7 +337,7 @@ public class ePortfolioGeneratorView {
         }
         });  
      
-      addTextButton.setOnAction(e -> {
+     addTextButton.setOnAction(e -> {
         try {
             compController.handleAddTextRequest();
         } catch (MalformedURLException ex) {
@@ -364,8 +366,7 @@ public class ePortfolioGeneratorView {
 	fileToolbarPane = new FlowPane();
         fileToolbarPane.setMinWidth(1280);
         fileToolbarPane.getStyleClass().add(CSS_CLASS_FILE_TOOLBAR);
-        // HERE ARE OUR FILE TOOLBAR BUTTONS, NOTE THAT SOME WILL
-	// START AS ENABLED (false), WHILE OTHERS DISABLED (true)
+        
 	PropertiesManager props = PropertiesManager.getPropertiesManager();
 	newEPGButton = initChildButton(fileToolbarPane, ICON_NEW_EPG,	TOOLTIP_NEW_EPG,	    CSS_CLASS_FILE_TOOLBAR_BUTTON, false);
 	loadEPGButton = initChildButton(fileToolbarPane, ICON_LOAD_EPG,	TOOLTIP_LOAD_EPG,    CSS_CLASS_FILE_TOOLBAR_BUTTON, false);
@@ -391,32 +392,47 @@ public class ePortfolioGeneratorView {
     }
     
     private void initSiteToolbar() {
-         
+        
+        //add page title
+        pageTitleFlowPane = new FlowPane();
+        pageTitleFlowPane.setMaxWidth(180);
+        pageTitleFlowPane.getStyleClass().add(CSS_CLASS_PAGE_TITLE);
+        pageTitle = new Label("Title:");
+        pageTitleFlowPane.getChildren().add(pageTitle);
+        inputPageTitle = new TextField();
+        inputPageTitle.setMaxWidth(120);
+        inputPageTitle.setPromptText("Page 1");
+        pageTitleFlowPane.getChildren().add(inputPageTitle);
+        
+        
+        //addd Site title and buttons
 	siteToolbar = new FlowPane();  
-        siteToolbar.setMaxWidth(200);
+        siteToolbar.setMaxWidth(180);
         siteToolbar.getStyleClass().add(CSS_CLASS_SITE_TOOLBAR);
         
         Label site = new Label("Site Toolbar");
         siteTitle = new FlowPane();
-        siteTitle.setMaxWidth(200);
+        siteTitle.setMaxWidth(180);
         siteTitle.getStyleClass().add(CSS_CLASS_SITE_TITLE);
         siteTitle.getChildren().add(site);
         
-        // HERE ARE OUR FILE TOOLBAR BUTTONS, NOTE THAT SOME WILL
-	// START AS ENABLED (false), WHILE OTHERS DISABLED (true)
 	PropertiesManager props = PropertiesManager.getPropertiesManager();
 	addPageButton = initChildButton(siteToolbar, ICON_ADD_PAGE,	TOOLTIP_ADD_PAGE,	    CSS_CLASS_SITE_TOOLBAR_BUTTON, false);
         deletePageButton = initChildButton(siteToolbar, ICON_DELETE_PAGE,	TOOLTIP_DELETE_PAGE,	    CSS_CLASS_SITE_TOOLBAR_BUTTON, false);
         enablePageButton = initChildButton(siteToolbar, ICON_ENABLE_PAGE,	TOOLTIP_ENABLE_PAGE,	    CSS_CLASS_SITE_TOOLBAR_BUTTON, false);
         
-        pageTitleFlowPane = new FlowPane();
-        pageTitleFlowPane.setMaxWidth(200);
-        pageTitleFlowPane.getStyleClass().add(CSS_CLASS_PAGE_TITLE);
-        pageTitle = new Label("Title:");
-        pageTitleFlowPane.getChildren().add(pageTitle);
-        inputPageTitle = new TextField();
-        inputPageTitle.setPromptText("Page 1");
-        pageTitleFlowPane.getChildren().add(inputPageTitle);
+        
+        listPageScroll = new ScrollPane();
+        listPageScroll.setMaxWidth(180);
+        listPageScroll.setMaxHeight(482);
+        listPageScroll.getStyleClass().add(CSS_CLASS_LIST_PAGES_SCROLL);
+        
+        //add list of pages
+        listPages = new VBox(1);
+        listPages.getStyleClass().add(CSS_CLASS_LIST_PAGES);
+        listPages.getChildren().add(new Label("Page 1"));
+        
+        listPageScroll.setContent(listPages);
     
     } 
         
@@ -426,10 +442,10 @@ public class ePortfolioGeneratorView {
 	workspace = new TabPane();  
         workspace.getStyleClass().add(CSS_CLASS_WORKSPACE);
         workspace.setMinHeight(600);
-        
-        // HERE ARE OUR FILE TOOLBAR BUTTONS, NOTE THAT SOME WILL
-	// START AS ENABLED (false), WHILE OTHERS DISABLED (true)
-	PropertiesManager props = PropertiesManager.getPropertiesManager();
+        workspace.setMaxHeight(600);
+        workspace.setMinWidth(800);
+        workspace.setMaxWidth(900);
+
 	Tab tab = new Tab();
             tab.setText("Page 1");
             HBox hbox = new HBox();
@@ -571,7 +587,8 @@ public class ePortfolioGeneratorView {
         
         rightBars.getChildren().add(pageTitleFlowPane);
         rightBars.getChildren().add(siteTitle);
-        rightBars.getChildren().add(siteToolbar);   
+        rightBars.getChildren().add(siteToolbar);  
+        rightBars.getChildren().add(listPageScroll);
               
 	epgPane.setTop(topBars);
         epgPane.setLeft(leftBars);    

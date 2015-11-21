@@ -5,9 +5,11 @@
  */
 package epg.dialogue;
 
+import static epg.StartupConstants.CSS_CLASS_VIDEO_DIALOGUE;
 import static epg.StartupConstants.ICON_ADD_IMAGE;
 import static epg.StartupConstants.ICON_ADD_VIDEO;
 import static epg.StartupConstants.PATH_ICONS;
+import static epg.StartupConstants.STYLE_SHEET_UI;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
@@ -57,6 +59,7 @@ public class VideoDialogue extends Stage{
         
         vBox = new VBox();
         vBox.setMinSize(300, 300);
+        vBox.getStyleClass().add(CSS_CLASS_VIDEO_DIALOGUE);
         
         vBox.getChildren().add(height);
         vBox.getChildren().add(width);
@@ -70,6 +73,7 @@ public class VideoDialogue extends Stage{
 	});
         
         Scene scene = new Scene(vBox);
+        scene.getStylesheets().add(STYLE_SHEET_UI);
         this.setTitle("Video Component");
         String windowImagePath = "file:" + PATH_ICONS + ICON_ADD_VIDEO;
         Image windowImage = new Image(windowImagePath); 

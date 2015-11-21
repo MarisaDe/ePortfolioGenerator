@@ -56,6 +56,12 @@ public class StartupConstants {
     public static String ICON_PREVIOUS = "Previous.png";
     public static String ICON_NEXT = "Next.png";
     
+    //text dialogue buttons
+    
+    public static String ICON_PARAGRAPH = "Paragraph.png";
+    public static String ICON_HEADER = "Header.png";
+    public static String ICON_LIST = "List.png";
+    
     // UI SETTINGS
     public static String    DEFAULT_SLIDE_IMAGE = "DefaultStartSlide.png";
     public static int	    DEFAULT_THUMBNAIL_WIDTH = 200;
@@ -84,18 +90,21 @@ public class StartupConstants {
     public static String    CSS_CLASS_THEME_TITLE = "theme_title";
     public static String    CSS_CLASS_SITE_TITLE = "site_title";
     public static String    CSS_CLASS_PAGE_TITLE = "page_title";
+    public static String    CSS_CLASS_LIST_PAGES = "list_pages";
+    public static String    CSS_CLASS_LIST_PAGES_SCROLL = "list_pages_scroll";
     
     // edit component dialogue boxes
-    public static String    CSS_CLASS_EDIT_BANNER_DIALOGUE = "edit_banner_dialogue";
-    public static String    CSS_CLASS_EDIT_IMAGE_DIALOGUE = "edit_image_dialogue";
-    public static String    CSS_CLASS_EDIT_TEXT_DIALOGUE = "edit_text_dialogue";
-    public static String    CSS_CLASS_EDIT_VIDEO_DIALOGUE = "edit_video_dialogue";
-    public static String    CSS_CLASS_EDIT_SS_DIALOGUE = "edit_SS_dialogue";
-    public static String    CSS_CLASS_EDIT_DELETE_PAGE_DIALOGUE = "delete_page_dialogue";
-    public static String    CSS_CLASS_EDIT_DELETE_COMP = "delete_comp_dialogue";
+    public static String    CSS_CLASS_BANNER_DIALOGUE = "banner_dialogue";
+    public static String    CSS_CLASS_IMAGE_DIALOGUE = "image_dialogue";
+    public static String    CSS_CLASS_TEXT_DIALOGUE = "text_dialogue";
+    public static String    CSS_CLASS_TEXT_DIALOGUE_HBOX = "text_dialogue_hbox";
+    public static String    CSS_CLASS_TEXT_DIALOGUE_BUTTON = "text_dialogue_button";
+    public static String    CSS_CLASS_VIDEO_DIALOGUE = "video_dialogue";
+    public static String    CSS_CLASS_SS_DIALOGUE = "SS_dialogue";
+    public static String    CSS_CLASS_DELETE_PAGE_DIALOGUE = "delete_page_dialogue";
+    public static String    CSS_CLASS_DELETE_COMP = "delete_comp_dialogue";
     
     
- 
     
     // UI LABELS ---------------------------------------------------------------
     public static String    LABEL_NAME = "name_label";
@@ -137,6 +146,9 @@ public class StartupConstants {
     public static String TOOLTIP_DELETE_VIDEO_COMP = "Delete this video component from the current page";
     public static String TOOLTIP_DELETE_SS_COMP = "Delete this slide show component from the current page";
    
+    //Text dialogue tooltips
     
-    
+    public static String TOOLTIP_PARAGRAPH = "Create a paragraph text component";
+    public static String TOOLTIP_HEADER = "Create a header text component";
+    public static String TOOLTIP_LIST = "Create a list text component";
 }

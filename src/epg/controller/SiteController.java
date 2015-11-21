@@ -38,7 +38,7 @@ public class SiteController {
        
     }
      
-    public void handleAddPageRequest() throws MalformedURLException 
+    public Label handleAddPageRequest() throws MalformedURLException 
     {
         numOfPages++;
         Tab tab = new Tab();
@@ -47,7 +47,10 @@ public class SiteController {
         hbox.getChildren().add(new Label("Page" + numOfPages));
         hbox.setAlignment(Pos.CENTER); 
         tab.setContent(hbox);
-        ui.getWorkSpace().getTabs().add(tab);
+        ui.getWorkSpace().getTabs().add(tab);     
+        Label newPage = new Label("Page " + numOfPages);
+        newPage.onMouseEnteredProperty();            
+        return newPage;
         
     }       
 }
