@@ -1,0 +1,93 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 2, 2015, 5:18:26 PM
+    Author     : Marisa
+*/
+
+// REALLY REALLY POIPLE
+
+a:link{
+    
+    text-decoration: none;
+    color: purple;   
+}
+
+a:visited {
+    text-decoration: none;
+    color: purple;
+}
+
+a:hover {
+    
+    text-decoration: none;
+    color: black;
+}
+
+a:active {
+    text-decoration: none;
+    color: grey;
+}
+
+
+h1{
+    color: white;
+}
+
+h2{
+    color: #7F4D91;
+}
+body{
+    background-color: #D1C9D4;
+}
+
+
+#navbar{
+   
+    background-color: white;
+    border: 2px solid #7F4D91;
+}
+#navbar a:hover{
+
+        background:#8C7694;
+        color:white;
+}
+
+
+#bannerimg{
+    
+    background-color: #8C7694;
+    border-right: 2px solid #8C7694;
+    border-left: 2px solid #8C7694;
+    border-top: 2px solid #8C7694;
+    
+}
+
+#banner{
+    
+    text-decoration-color: white;
+    background-color: #7F4D91;
+    border-right: 2px solid #7F4D91;
+    border-left: 2px solid #7F4D91;
+    
+}
+
+
+#content{
+
+    background-color: white;
+    border-right: 2px solid white;
+    border-left: 2px solid white;
+}
+
+#footer{
+    
+    background-color: #8C7694;
+    border-right: 2px solid #8C7694;
+    border-left: 2px solid #8C7694;
+    border-bottom: 2px solid #8C7694;
+    
+}

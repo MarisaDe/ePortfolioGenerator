@@ -12,7 +12,6 @@ and open the template in the editor.
     
     -fx-alignment: CENTER-LEFT;
     -fx-background-color: #887EE9;
-    -fx-border-color: #BFB9F6;
  
 }
 .file_toolbar_button{
@@ -38,20 +37,83 @@ and open the template in the editor.
     -fx-padding: 5px 20px 5px 5px;
 }
 
-.comp_toolbox{
+.comp_toolbox {
     
-    -fx-alignment: CENTER;
+    //-fx-alignment: CENTER;
     -fx-background-color:lightblue;
-    -fx-padding: 5px 20px 5px 5px;
+    //-fx-padding: 5px 20px 5px 5px;
     
 }
 
 .comp_toolbox_button{
     -fx-alignment: CENTER;
     -fx-background-color:transparent;
-    -fx-padding: 10px 10px 10px 10px;
+    -fx-padding: 8px 8px 8px 8px;
+    -fx-vertical-spacing:40px;
+}
+
+.comp_title{
+    
+     -fx-background-color:lightblue;
+     -fx-alignment:CENTER;
+     //-fx-padding: 10px 10px 10px 10px;
 }
 
 .workspace{
      -fx-background-color:grey;
+}
+
+
+.theme_title{
+    -fx-alignment: CENTER;
+    -fx-background-color: #BFB9F6;
+}
+
+.themes_toolbox{
+    
+    -fx-background-color: #BFB9F6; 
+}
+.themes_toolbox.combo-box{ 
+    
+    -fx-bottom-padding: 10px;
+    -fx-left-padding: 5px;
+}
+
+.themes_toolbox .label{
+     
+    -fx-left-padding: 5px;
+    -fx-bottom-padding: 5px;
+}
+
+.page_title{
+    -fx-background-color: #BFB9F6;
+}
+.site_title{
+    -fx-alignment: CENTER;
+    -fx-background-color: #BFB9F6;
+}
+
+.site_toolbar{
+    
+    -fx-alignment: CENTER;
+    -fx-background-color: #BFB9F6;
+}
+.site_toolbar .label{
+    -fx-right-padding: 10px;
+}
+
+.site_toolbar_button{
+ 
+    -fx-background-color: transparent;
+}
+.combo-box{
+    -fx-pref-width: 130;
+}
+
+.label{
+    -fx-padding: 10px 10px 10px 10px;
+}
+
+.textfield{
+    -fx-pref-width: 20;
 }

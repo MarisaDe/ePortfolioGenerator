@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type= "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="js/js.js"></script> 
+        <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>   
+        <title>View Slide Show</title>  
+    </head>
+    
+    <body>    
+    <div>
+    <table>
+    <tr><td>   
+            <h1 id ="title"></h1>
+            <hr><br>
+     <div id="imgs"></div>
+     <div id="captions"></div>
+   </tr></td>
+   <tr><td id = "captionPos">
+        <div class="btns"> 
+     
+     <img name="previousbtn" src = "img/icons/Previous.png" alt="previous" onclick ="return handlePrev()">
+     <img name="playbtn" src = "img/icons/Play.png" alt="play" id = "whenClicked" onclick = "return handlePlay()">
+     <img name="nextbtn" src = "img/icons/Next.png" alt="next" onclick = "return handleNext()"><br>
+        </div> 
+      </tr><td>
+    </table>
+   
+    </div>
+   
+    </body>
+</html>

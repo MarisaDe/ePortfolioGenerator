@@ -1,0 +1,224 @@
+
+{
+    "title":"PamBeesly", 
+    "name":"Pam Beesly",
+    "pages": 3,
+    "footer":"© The Office. Info from Wikipedia.",
+
+
+"site": [{ 
+"page":[{
+            "pageTitle" : "Home",
+            "enable" :true,
+            "type" :""
+        },
+
+        {
+            "type" : "banner_image",
+            "image_file_name" : "banner.png",
+            "image_path" : "ePortfolioSite\\public_html\\Images",
+            "height" :"100",
+            "width" :"300"
+        },
+
+
+        {
+           
+            "type" : "image",
+	    "image_file_name":"PamBeesly.jpg",
+	    "image_path":"ePortfolioSite\\public_html\\Images",
+            "height" : 300,
+            "width" : 200,
+            "float" :"right",
+            "margin" : 15
+           
+       
+        },
+        
+
+	{
+            "type" : "p",
+	    "text": "Pamela Morgan 'Pam' Halpert née Beesly (also Beesley)[2] (born March 25, 1979) is a fictional character on the U.S. television sitcom The Office, played by Jenna Fischer. Her counterpart in the original UK series of The Office is Dawn Tinsley. Her character is initially the receptionist at the paper distribution company Dunder Mifflin, before becoming a saleswoman and eventually office administrator until her termination in the series finale. Her character is shy, growing assertive but amiable, and artistically inclined, and shares romantic interest with Jim Halpert, whom she begins dating in the fourth season and marries and starts a family with as the series continues. Pam's kindness and compassion means she is well liked among her workmates and develops strong relations with several of the office workers as the season progresses."        
+	},
+ 
+       
+	{
+            "type" : "h",
+	    "text": "About me as a Character!"     
+	},
+
+        {
+            "type": "p",
+            "text": "The character was originally created to be very similar to the British counterpart, Dawn Tinsley. Even minute details, such as how Pam wore her hair each day, were considered by executive producer, Greg Daniels.[2] 'When I went in for The Office, the casting director said to me, 'Please look normal',' recalls Jenna Fischer. 'Don't make yourself all pretty, and dare to bore me with your audition. Those were her words. Dare to bore me.'[3] Heeding the advice, Fischer said little during the auditions, during which she was interviewed in character by show producers, in an improvisational format, to imitate the show's documentary premise. 'My take on the character of Pam was that she didn't have any media training, so she didn't know how to be a good interview. And also, she didn't care about this interview,' she told NPR. 'So, I gave very short one-word answers and I tried very hard not to be funny or clever, because I thought that the comedy would come out of just, you know, the real human reactions to the situation...and they liked that take on it.'[3] 'When I went in to the audition, the first question that they asked me in the character of Pam — they said, 'Do you like working as a receptionist?' I said, 'No.' And that was it. I didn't speak any more than that. And they started laughing.'[3] Fischer found herself creating a very elaborate backstory for the character. For the first few seasons, she kept a list of the character history revealed on-screen by the creators, as well as her own imaginative thoughts on Pam's history.[4] She created a rule with the set's hair and make-up department that it couldn't look as though it took Pam more than 30 minutes to do her hair,[5] and she formulated ideas as to who gave Pam each piece of jewelry she wore [6] or where she went to college.[6] Fischer also carefully crafted Pam's quiet persona. 'Well, my character of Pam is really stuck,' she explained to NPR. 'I mean, she's a subordinate in this office. And so, I think that for her, the only way she can express herself is in the silences, but you can say so much by not saying anything.'[3] Originally meek and passive, the character grew more assertive as the seasons passed, prompting Fischer to reassess her portrayal. 'I have to approach Pam differently [now],' she explained in Season 4, a defining season in which her character finally begins a long awaited relationship with Jim and is accepted into the Pratt Institute. 'She is in a loving relationship, she has found her voice, she has started taking art classes. All of these things must inform the character and we need to see changes in the way she moves, speaks, dresses, etc.'[4]"
+        }
+    
+   ]
+},
+{
+"page":[{
+            "pageTitle" : "Work Exp.",
+            "enable" :true,
+            "type" : ""
+        },
+
+        {
+            "type" : "banner_image",
+            "image_file_name" : "banner.png",
+            "image_path" : "ePortfolioSite\\public_html\\Images",
+            "height" : 100,
+            "width" : 100
+        },
+
+    	{
+            "type" : "image",
+	    "image_file_name":"workexp.png",
+            "image_path":"ePortfolioSite\\public_html\\Images",
+            "height" : 300,
+            "width" : 200,
+            "margin" : 15
+        },
+
+        {
+            "type" : "h",
+            "text" : "My Past Occupations:"
+        },
+
+        {
+            "type" : "li",
+            "text" : "Receptionist, Dunder Mifflin, Scanton PA"
+        },
+
+        {
+            "type": "li",
+            "text" : "Secret Assistant to the Regional Manager, Dunder Mifflin, Scranton PA"
+        },
+
+        {
+            "type": "li",
+            "text" : "Temporary Worker, Dunder Mifflin Corporate, New York City, NY"
+        },
+        {
+            "type": "li",
+            "text" : "Sales Representative, Michael Scott Paper Company"
+        },
+
+        {
+            "type": "li",
+            "text" : "Sales Representative, Dunder Mifflin, Scranton PA"
+        },
+
+        {
+            "type": "li",
+            "text" : "Sales Representative, Dunder Mifflin Sabre, Scranton PA"
+        },
+
+        {
+            "type": "li",
+            "text" : "Office Administrator, Dunder Mifflin Sabre, Scranton PA"
+        }
+
+    ]
+},
+
+{
+"page":[{
+            "pageTitle" : "My Art",
+            "enable" :true,
+            "type" :""
+        },
+
+        {
+            "type" : "banner_image",
+            "image_file_name" : "banner.png",
+            "image_path" : "ePortfolioSite\\public_html\\Images",
+            "height" :"100",
+            "width" :"300"
+        },
+
+        {
+            "type" : "h",
+            "text" : "I love to make art."
+        },
+
+        {
+            "type" : "video",
+	    "video_file_name": "PamsArt.mp4",
+            "height" : 300,
+            "width" : 500,
+	    "video_path" : "ePortfolioSite\\public_html\\Videos"    
+        }
+
+   ]
+},
+{
+"page":[{
+            "pageTitle" : "My wedding",
+            "enable" :true,
+            "type" :""
+        },
+
+        {
+            "type" : "banner_image",
+            "image_file_name" : "banner.png",
+            "image_path" : "ePortfolioSite\\public_html\\Images",
+            "height" :"100",
+            "width" :"300"
+        },
+        
+        {
+            "type" : "h",
+            "text" : "A Slideshow of our wedding!"
+        },
+
+        {
+            "type" : "slideshow",
+            "path" : "SlideShow/Wedding/index.html",
+            "height" :"700",
+            "width" :"800"
+        }
+
+
+   ]
+},
+
+{
+"page":[{
+            "pageTitle" : "The Beginning",
+            "enable" :true,
+            "type" :""
+        },
+
+        {
+            "type" : "banner_image",
+            "image_file_name" : "banner.png",
+            "image_path" : "ePortfolioSite\\public_html\\Images",
+            "height" :"100",
+            "width" :"300"
+        },
+
+        {
+            "type" : "h",
+            "text" : "The Beginning."
+        },
+
+        {
+            "type" : "pa",
+	    "text" : "At the beginning of the series, Pam and Roy have been dating for eight years and engaged for three years. Their open-ended engagement has become one of Michael's running gags and a sore spot for Pam. Pam does not want her current job to become permanent, remarking that 'I don't think it's many little girls' dream to be a receptionist.' Pam is apathetic toward her work, evidenced by her frequent games of FreeCell on her office computer. However, in the pilot episode, she breaks down crying when Michael pulls an ill-advised prank by telling her that she will be fired.",
+            "link" : "https://en.wikipedia.org/wiki/Running_gag",
+            "linkStart" : 162,
+            "linkEnd" : 174
+        },
+
+
+        {
+            "type" : "pa",
+            "text" : "Michael has criticized Pam for simply forwarding calls to voice mail without answering and (in a deleted scene) for not sounding enthusiastic enough when speaking on the telephone. Pam is usually happy to abandon her work if asked to do something else by Jim. She will do extra, unnecessary work (such as making a casket for a dead bird or paper doves for the Office Olympics) to make other people happy. Despite the abuse she takes from Michael, she never goes any further than calling him a jerk in the pilot. In later seasons, however, she becomes more honest and forward with Michael and will often make sarcastic comments toward him.",
+            "link" : "https://en.wikipedia.org/wiki/Pilot_%28The_Office%29",
+            "linkStart" : 501,
+            "linkEnd" : 510
+        }
+
+   ]
+}]
+}
+

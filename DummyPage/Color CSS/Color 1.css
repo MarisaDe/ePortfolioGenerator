@@ -1,0 +1,93 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 2, 2015, 5:17:52 PM
+    Author     : Marisa
+*/
+
+// STONY BROOK PRIDE COLOR THEME
+
+a:link{
+    
+    text-decoration: none;
+    color: #990000;   
+}
+
+a:visited {
+    color: #990000;
+    text-decoration: none;
+}
+
+a:hover {
+    
+    text-decoration: none;
+    color: black;
+}
+
+a:active {
+    text-decoration: none;
+    color: grey;
+}
+
+
+h1{
+    color: white;
+}
+
+h2{
+    color: #990000;
+}
+body{
+    background-color: #990000;
+}
+
+
+#navbar{
+   
+    background-color: white;
+    border: 2px solid rgb(118,143,165);
+}
+#navbar a:hover{
+
+        background:#768FA5;
+        color:white;
+}
+
+
+#bannerimg{
+    
+    background-color: #660000;
+    border-right: 2px solid #660000;
+    border-left: 2px solid #660000;
+    border-top: 2px solid #660000;
+    
+}
+
+#banner{
+    
+    text-decoration-color: white;
+    background-color: rgb(118,143,165);
+    border-right: 2px solid rgb(118,143,165);
+    border-left: 2px solid rgb(118,143,165);
+    
+}
+
+
+#content{
+
+    background-color: white;
+    border-right: 2px solid white;
+    border-left: 2px solid white;
+}
+
+#footer{
+    
+    background-color: grey;
+    border-right: 2px solid grey;
+    border-left: 2px solid grey;
+    border-bottom: 2px solid grey;
+    
+}

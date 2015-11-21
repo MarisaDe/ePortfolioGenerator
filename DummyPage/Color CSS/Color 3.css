@@ -1,0 +1,96 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 2, 2015, 5:18:08 PM
+    Author     : Marisa
+*/
+
+//FACEBOOK COLOR THEME
+
+a:link{
+    
+    text-decoration: none;
+    color: white;   
+}
+
+a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    
+    text-decoration: none;
+    color: #8B9DC3;
+}
+
+a:active {
+    
+    text-decoration: none;
+    color: #8B9DC3;
+}
+
+
+h1{
+    color: #F7F7F7;
+}
+
+h2{
+    color: #3B5998;
+}
+body{
+    background-color: #DFE3EE;
+}
+
+
+#navbar{
+   
+    background-color: #3B5998;
+    border: 2px solid #3B5998;  
+}
+
+#navbar a:hover{
+
+        background:#8B9DC3;
+        color:white;
+}
+
+
+#bannerimg{
+    
+    background-color: #8B9DC3;
+    border-right: 2px solid #8B9DC3;
+    border-left: 2px solid #8B9DC3;
+    border-top: 2px solid #8B9DC3;
+    
+}
+
+#banner{
+    
+    text-decoration-color: white;
+    background-color: rgb(59,89,152);
+    border-right: 2px solid rgb(59,89,152);
+    border-left: 2px solid rgb(59,89,152);
+    
+}
+
+
+#content{
+
+    background-color: #F7F7F7;
+    border-right: 2px solid #F7F7F7;
+    border-left: 2px solid #F7F7F7;
+}
+
+#footer{
+    
+    background-color: #8B9DC3;
+    border-right: 2px solid #8B9DC3;
+    border-left: 2px solid #8B9DC3;
+    border-bottom: 2px solid #8B9DC3;
+    
+}
+

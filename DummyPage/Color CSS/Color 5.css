@@ -1,0 +1,104 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 2, 2015, 5:18:38 PM
+    Author     : Marisa
+*/
+
+// NATURE COLOR THEME
+
+a:link{
+    
+    text-decoration: none;
+    color: #1F5D1F;   
+}
+
+a:visited {
+    color: #009000;
+    text-decoration: none;
+}
+
+a:hover {
+    
+    text-decoration: none;
+    color: #00EB00;
+}
+
+a:active {
+    text-decoration: none;
+    color: grey;
+}
+
+
+h1{
+    color: white;
+}
+
+h2{
+    color: #299B29;
+}
+body{
+    background-color: #D4A256;
+}
+
+
+#navbar{
+   
+    background-color: #B0763B;
+    border: 2px solid #B0763B;
+}
+
+#navbar a:link{
+
+        color: rgb(20,20,20);
+}
+
+#navbar a:visited{
+
+        color: rgb(20,20,20);
+}
+
+#navbar a:hover{
+
+        background:#84572B;
+        color:white;
+}
+
+
+#bannerimg{
+    
+    background-color: #299B29;
+    border-right: 2px solid #299B29;
+    border-left: 2px solid #299B29;
+    border-top: 2px solid #299B29;
+    
+}
+
+#banner{
+    
+    text-decoration-color: white;
+    background-color: #84572B;
+    border-right: 2px solid #84572B;
+    border-left: 2px solid #84572B;
+    
+}
+
+
+#content{
+
+    background-color: white;
+    border-right: 2px solid white;
+    border-left: 2px solid white;
+}
+
+#footer{
+    
+    background-color: #299B29;
+    border-right: 2px solid #299B29;
+    border-left: 2px solid #299B29;
+    border-bottom: 2px solid #299B29;
+    
+}

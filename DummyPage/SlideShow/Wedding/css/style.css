@@ -1,0 +1,68 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 2, 2015, 8:57:37 PM
+    Author     : Marisa
+*/
+
+@font-face {
+    font-family: myFirstFont;
+    src: url("fonts.otf"); 
+    format("opentype");
+}
+
+@font-face { 
+    font-family: markers;
+    src: url("markers.ttf");
+    format("opentype");
+}
+
+img{
+    width:auto;
+    height: auto;
+    max-width: 700px; 
+    max-height: 450px;
+    animation-name: fadeInOut;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+h1 {
+     font-family: myFirstFont;
+     font-size: 30px;
+     text-align: left;
+     padding-left: 10px;
+}
+div {
+    
+    font-family: markers;
+    text-align:center;
+    font-size: 25px;
+    
+}
+
+body{
+    background-color: rgb(200,200,20);
+}
+
+#captionPos{
+
+    height: 100px;
+}
+
+.btns{
+    vertical-align: bottom;
+}
+table{
+    margin-left: auto;
+    margin-right: auto;
+    border:none;
+    background-color: rgb(240,240,240);
+    width: 800px;
+    height: 800px;
+        
+}

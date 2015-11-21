@@ -1,0 +1,98 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 2, 2015, 5:18:00 PM
+    Author     : Marisa
+*/
+
+// THE STEREOTYPICAL CODER COLOR THEME
+
+a:link{
+    
+    text-decoration: none;
+    color: rgb(57,188,79);   
+}
+
+a:visited {
+    text-decoration: none;
+    color: rgb(57,188,79);
+}
+
+a:hover {
+    
+    text-decoration: none;
+    color: rgb(57,188,79);
+}
+
+a:active {
+    
+    text-decoration: none;
+    color: green;
+}
+
+
+h1{
+    color: rgb(61,228,91);
+}
+
+h2{
+    color: #0E871A;
+}
+body{
+    background-color: black;
+}
+
+
+#navbar{
+   
+    color: white;
+    background-color: rgb(30,30,30);
+    border: 2px solid rgb(30,30,30);  
+}
+
+#navbar a:hover{
+
+        background:rgb(57,188,79);
+        color:black;
+}
+
+
+
+
+#bannerimg{
+    
+    background-color: rgb(57,188,79);
+    border-right: 2px solid rgb(57,188,79);
+    border-left: 2px solid rgb(57,188,79);
+    border-top: 2px solid rgb(57,188,79);
+    
+}
+
+#banner{
+    
+    text-decoration-color: white;
+    background-color: rgb(40,40,40);
+    border-right: 2px solid rgb(40,40,40);
+    border-left: 2px solid rgb(40,40,40);
+    
+}
+
+
+#content{
+
+    background-color: lightgrey;
+    border-right: 2px solid lightgrey;
+    border-left: 2px solid lightgrey;
+}
+
+#footer{
+    
+    background-color: rgb(57,188,79);;
+    border-right: 2px solid rgb(57,188,79);;
+    border-left: 2px solid rgb(57,188,79);;
+    border-bottom: 2px solid rgb(57,188,79);;
+    
+}

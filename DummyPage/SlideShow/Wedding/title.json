@@ -1,0 +1,26 @@
+
+{
+    "title":"Wedding",
+    "slides":[
+        {
+            "image_file_name":"wedding.jpg",
+            "image_path":"C:\\Users\\Marisa\\Desktop\\CSE 219\\HW 5\\ePortfolioSite\\public_html\\Images\\",
+            "caption":"Picture 1"
+        },
+        {
+            "image_file_name":"wedding2.jpg",
+            "image_path":"C:\\Users\\Marisa\\Desktop\\CSE 219\\HW 5\\ePortfolioSite\\public_html\\Images\\",
+            "caption":"Picture 2"
+        },
+        {
+            "image_file_name":"wedding4.jpg",
+            "image_path":"C:\\Users\\Marisa\\Desktop\\CSE 219\\HW 5\\ePortfolioSite\\public_html\\Images\\",
+            "caption":"Picture 3"
+        },
+        {
+            "image_file_name":"wedding5.jpg",
+            "image_path":"C:\\Users\\Marisa\\Desktop\\CSE 219\\HW 5\\ePortfolioSite\\public_html\\Images\\",
+            "caption":"Picture 4"
+        }
+    ]
+}

@@ -43,7 +43,7 @@ public class StartupConstants {
     public static String ICON_ADD_PAGE = "AddPage.png";
     public static String ICON_ENABLE_PAGE = "EnablePage.png";
     public static String ICON_DISABLE_PAGE = "DisablePage.png";
-    public static String ICON_REMOVE_PAGE = "Remove.png";
+    public static String ICON_DELETE_PAGE = "DeletePage.png";
     
     //workspace mode buttons
     public static String ICON_PAGE_EDITOR = "PageEditor.png";
@@ -75,10 +75,15 @@ public class StartupConstants {
     public static String    CSS_CLASS_COMP_TOOLBOX_BUTTON = "comp_toolbox_button";
     public static String    CSS_CLASS_COMP = "comp";
     public static String    CSS_CLASS_SELECTED_COMP = "selected_comp";
-    public static String    CSS_CLASS_SITE_TOOLBAR = "site_toolbar_button";
-    public static String    CSS_CLASS_THEMES_TOOLBOX = "themes_toolbox_button";
+    public static String    CSS_CLASS_SITE_TOOLBAR = "site_toolbar";
+    public static String    CSS_CLASS_SITE_TOOLBAR_BUTTON = "site_toolbar_button";
+    public static String    CSS_CLASS_THEMES_TOOLBOX = "themes_toolbox";
     public static String    CSS_CLASS_PAGE_EDITOR = "page_editor";
     public static String    CSS_CLASS_WORKSPACE = "workspace";
+    public static String    CSS_CLASS_COMP_TITLE = "comp_title";
+    public static String    CSS_CLASS_THEME_TITLE = "theme_title";
+    public static String    CSS_CLASS_SITE_TITLE = "site_title";
+    public static String    CSS_CLASS_PAGE_TITLE = "page_title";
     
     // edit component dialogue boxes
     public static String    CSS_CLASS_EDIT_BANNER_DIALOGUE = "edit_banner_dialogue";
@@ -112,25 +117,25 @@ public class StartupConstants {
     public static String TOOLTIP_SITE_VIEWER = "Loads most recently edited page for viewing";
 
     //Site Toolbar tooltips
-    public static String TOOLTIP_ADD_PAGE = "Adds a new page to your ePortfolio";
-    public static String TOOLTIP_DELETE_PAGE = "Deletes this page from your ePortfolio";
-    public static String TOOLTIP_ENABLE_PAGE = "This page is currently enabled as a navigation link";
-    public static String TOOLTIP_DISABLE_PAGE = "This page is currently disabled as a navigation link";
-    public static String TOOLTIP_SELECT_PAGE = "Selects current page to edit";
+    public static String TOOLTIP_ADD_PAGE = "Add a new page to your ePortfolio";
+    public static String TOOLTIP_DELETE_PAGE = "Delete the selected page from your ePortfolio";
+    public static String TOOLTIP_ENABLE_PAGE = "Enable as a navigation link";
+    public static String TOOLTIP_DISABLE_PAGE = "Disable as a navigation link";
+    public static String TOOLTIP_SELECT_PAGE = "Select current page to edit";
     
     //Comp toolbar tooltips
-    public static String TOOLTIP_ADD_IMAGE_COMP = "Adds an image component to the current page";
-    public static String TOOLTIP_ADD_TEXT_COMP = "Adds a text component to the current page";
-    public static String TOOLTIP_ADD_VIDEO_COMP = "Adds a video component to the current page";
-    public static String TOOLTIP_ADD_SS_COMP = "Adds a slide show component to the current page";
+    public static String TOOLTIP_ADD_IMAGE_COMP = "Add an image component to the current page";
+    public static String TOOLTIP_ADD_TEXT_COMP = "Add a text component to the current page";
+    public static String TOOLTIP_ADD_VIDEO_COMP = "Add a video component to the current page";
+    public static String TOOLTIP_ADD_SS_COMP = "Add a slide show component to the current page";
     
     
     //Page Editor Workspace tooltips (comp tooltips)
-    public static String TOOLTIP_DELETE_BANNER_COMP = "Deletes this banner image component from the current page";
-    public static String TOOLTIP_DELETE_IMAGE_COMP = "Deletes this image component from the current page";
-    public static String TOOLTIP_DELETE_TEXT_COMP = "Deletes this text component from the current page";
-    public static String TOOLTIP_DELETE_VIDEO_COMP = "Deletes this video component from the current page";
-    public static String TOOLTIP_DELETE_SS_COMP = "Deletes this slide show component from the current page";
+    public static String TOOLTIP_DELETE_BANNER_COMP = "Delete this banner image component from the current page";
+    public static String TOOLTIP_DELETE_IMAGE_COMP = "Delete this image component from the current page";
+    public static String TOOLTIP_DELETE_TEXT_COMP = "Delete this text component from the current page";
+    public static String TOOLTIP_DELETE_VIDEO_COMP = "Delete this video component from the current page";
+    public static String TOOLTIP_DELETE_SS_COMP = "Delete this slide show component from the current page";
    
     
     
