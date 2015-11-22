@@ -5,20 +5,13 @@
  */
 package epg.controller;
 
+import epg.dialogue.HeaderDialogue;
 import epg.dialogue.ImageDialogue;
+import epg.dialogue.ListDialogue;
 import epg.dialogue.TextDialogue;
 import epg.dialogue.VideoDialogue;
 import epg.view.ePortfolioGeneratorView;
-import java.io.File;
 import java.net.MalformedURLException;
-import javafx.geometry.Pos;
-import javafx.scene.control.Label;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
-import static javafx.scene.input.KeyCode.SLASH;
-import javafx.scene.layout.HBox;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
 
 /**
  *
@@ -27,7 +20,7 @@ import javafx.scene.web.WebView;
 public class CompController {
     
     boolean saved;
-    private ePortfolioGeneratorView ui;
+    private final ePortfolioGeneratorView ui;
     
      public CompController(ePortfolioGeneratorView initUI) {
          
@@ -40,23 +33,28 @@ public class CompController {
     {
         ImageDialogue addImage = new ImageDialogue();
         addImage.showAndWait();
-        
-
     }
     
     public void handleAddTextRequest() throws MalformedURLException 
     {
         TextDialogue addText = new TextDialogue();
         addText.showAndWait();
-        
-
     }   
     
     public void handleAddVideoRequest() throws MalformedURLException 
     {
         VideoDialogue addVideo = new VideoDialogue();
-        addVideo.showAndWait();
-        
-
-    }       
+        addVideo.showAndWait();    
+    }      
+    
+    public void handleAddListRequest() throws MalformedURLException 
+    {
+        ListDialogue addList = new ListDialogue();
+        addList.showAndWait();
+    }     
+    public void handleAddHeaderRequest() throws MalformedURLException 
+    {
+        HeaderDialogue addHeader = new HeaderDialogue();
+        addHeader.showAndWait();
+    }  
 }

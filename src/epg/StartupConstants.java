@@ -56,11 +56,20 @@ public class StartupConstants {
     public static String ICON_PREVIOUS = "Previous.png";
     public static String ICON_NEXT = "Next.png";
     
-    //text dialogue buttons
-    
+    //text dialogue buttons    
     public static String ICON_PARAGRAPH = "Paragraph.png";
     public static String ICON_HEADER = "Header.png";
     public static String ICON_LIST = "List.png";
+    public static String ICON_ADD = "Add.png";
+    public static String ICON_REMOVE = "Remove.png";
+    
+    //video dialogue buttons
+    public static String ICON_SELECT_VIDEO = "SelectVideo.png";
+    
+    //image dialogue buttons
+    public static String ICON_SELECT_IMAGE = "SelectImage.png";
+    
+  
     
     // UI SETTINGS
     public static String    DEFAULT_SLIDE_IMAGE = "DefaultStartSlide.png";
@@ -96,6 +105,8 @@ public class StartupConstants {
     // edit component dialogue boxes
     public static String    CSS_CLASS_BANNER_DIALOGUE = "banner_dialogue";
     public static String    CSS_CLASS_IMAGE_DIALOGUE = "image_dialogue";
+    public static String    CSS_CLASS_OKCANCEL_HBOX = "okCancel_hbox";
+    public static String    CSS_CLASS_HEADER_VBOX = "header_vbox";
     public static String    CSS_CLASS_TEXT_DIALOGUE = "text_dialogue";
     public static String    CSS_CLASS_TEXT_DIALOGUE_HBOX = "text_dialogue_hbox";
     public static String    CSS_CLASS_TEXT_DIALOGUE_BUTTON = "text_dialogue_button";
@@ -146,9 +157,15 @@ public class StartupConstants {
     public static String TOOLTIP_DELETE_VIDEO_COMP = "Delete this video component from the current page";
     public static String TOOLTIP_DELETE_SS_COMP = "Delete this slide show component from the current page";
    
-    //Text dialogue tooltips
-    
+    //Text dialogue tooltip  
     public static String TOOLTIP_PARAGRAPH = "Create a paragraph text component";
     public static String TOOLTIP_HEADER = "Create a header text component";
     public static String TOOLTIP_LIST = "Create a list text component";
+    public static String TOOLTIP_ADD_LIST_ITEM = "Add another list item";
+    public static String TOOLTIP_REMOVE_LIST_ITEM = "Remove this list item";
+    
+    //Video dialogue tooltip 
+    public static String TOOLTIP_SELECT_VIDEO = "Choose an .mp4 file to open as a video";
+    public static String TOOLTIP_SELECT_IMAGE = "Choose a .png file to open as an image";
+
 }
