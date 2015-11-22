@@ -8,6 +8,7 @@ package epg.controller;
 import epg.dialogue.HeaderDialogue;
 import epg.dialogue.ImageDialogue;
 import epg.dialogue.ListDialogue;
+import epg.dialogue.ParagraphDialogue;
 import epg.dialogue.TextDialogue;
 import epg.dialogue.VideoDialogue;
 import epg.view.ePortfolioGeneratorView;
@@ -46,7 +47,11 @@ public class CompController {
         VideoDialogue addVideo = new VideoDialogue();
         addVideo.showAndWait();    
     }      
-    
+    public void handleAddParagraphRequest() throws MalformedURLException 
+    {
+        ParagraphDialogue addParagraph = new ParagraphDialogue();
+        addParagraph.showAndWait();
+    }     
     public void handleAddListRequest() throws MalformedURLException 
     {
         ListDialogue addList = new ListDialogue();

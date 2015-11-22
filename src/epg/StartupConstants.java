@@ -62,6 +62,7 @@ public class StartupConstants {
     public static String ICON_LIST = "List.png";
     public static String ICON_ADD = "Add.png";
     public static String ICON_REMOVE = "Remove.png";
+    public static String ICON_LINK = "Link.png";
     
     //video dialogue buttons
     public static String ICON_SELECT_VIDEO = "SelectVideo.png";
@@ -163,6 +164,7 @@ public class StartupConstants {
     public static String TOOLTIP_LIST = "Create a list text component";
     public static String TOOLTIP_ADD_LIST_ITEM = "Add another list item";
     public static String TOOLTIP_REMOVE_LIST_ITEM = "Remove this list item";
+    public static String TOOLTIP_LINK = "Insert a hyperlink in your paragraph";
     
     //Video dialogue tooltip 
     public static String TOOLTIP_SELECT_VIDEO = "Choose an .mp4 file to open as a video";

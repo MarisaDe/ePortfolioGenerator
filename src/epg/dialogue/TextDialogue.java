@@ -115,6 +115,14 @@ public class TextDialogue extends Stage{
 	    this.hide();
             });  
             
+            paragraphBtn.setOnAction(e -> {
+                try {
+                    compController.handleAddParagraphRequest();
+                } catch (MalformedURLException ex) {
+                    Logger.getLogger(TextDialogue.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            
+            });              
             listBtn.setOnAction(e -> {
                 try {
                     compController.handleAddListRequest();
