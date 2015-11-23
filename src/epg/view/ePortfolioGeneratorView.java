@@ -9,6 +9,7 @@ import static epg.StartupConstants.CSS_CLASS_FILE_TOOLBAR_BUTTON;
 import static epg.StartupConstants.CSS_CLASS_FILE_TOOLBAR_EXIT_BUTTON;
 import static epg.StartupConstants.CSS_CLASS_LIST_PAGES;
 import static epg.StartupConstants.CSS_CLASS_LIST_PAGES_SCROLL;
+import static epg.StartupConstants.CSS_CLASS_NAME;
 import static epg.StartupConstants.CSS_CLASS_PAGE_EDITOR;
 import static epg.StartupConstants.CSS_CLASS_PAGE_TITLE;
 import static epg.StartupConstants.CSS_CLASS_SITE_TITLE;
@@ -53,8 +54,10 @@ import static epg.StartupConstants.ICON_EXIT_EPG;
 import static epg.StartupConstants.ICON_PAGE_EDITOR;
 import static epg.StartupConstants.ICON_REMOVE_COMP2;
 import static epg.StartupConstants.ICON_SAVEAS_EPG;
+import static epg.StartupConstants.ICON_SELECT_IMAGE;
 import static epg.StartupConstants.ICON_SITE_VIEWER;
 import static epg.StartupConstants.STYLE_SHEET_UI;
+import static epg.StartupConstants.TOOLTIP_ADD_BANNER_IMAGE;
 import static epg.StartupConstants.TOOLTIP_ADD_IMAGE_COMP;
 import static epg.StartupConstants.TOOLTIP_ADD_PAGE;
 import static epg.StartupConstants.TOOLTIP_ADD_SS_COMP;
@@ -155,10 +158,21 @@ public class ePortfolioGeneratorView {
     ComboBox fontChoice;
     ComboBox colorChoice;
     
+    //Basic title
+    FlowPane basicsTitle;
+    Label basic;
+    
     //Footer stuff
     FlowPane footerFlowPane;
     Label footer;
     TextField inputFooter;
+    
+    
+    //Banner image stuff
+    FlowPane bannerFlowPane;
+    Label bannerImage;
+    Button openBanner;
+    
     
     //Site Toolbar
     ScrollPane listPageScroll;
@@ -248,12 +262,16 @@ public class ePortfolioGeneratorView {
 
         //init name stuff
         initName();
-       
-        //init the selections for the different templates
-        initThemeToolbox();
         
         //init footer stuff
-        initFooter();      
+        initFooter();
+       
+        //init banner stuff
+        initBannerImage();
+        
+        //init the selections for the different templates
+        initThemeToolbox();
+              
         
         //init Site Toolbox
         initSiteToolbar();
@@ -360,7 +378,15 @@ public class ePortfolioGeneratorView {
         } catch (MalformedURLException ex) {
             Logger.getLogger(ePortfolioGeneratorView.class.getName()).log(Level.SEVERE, null, ex);
         }
-        });     
+        });
+     
+    addSSButton.setOnAction(e -> {
+        try {
+            compController.handleSlideShowRequest();
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(ePortfolioGeneratorView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }); 
      
     }
 
@@ -373,7 +399,7 @@ public class ePortfolioGeneratorView {
     private void initFileToolbar() {
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
 	fileToolbarPane = new FlowPane();
-        fileToolbarPane.setMinWidth(1280);
+        fileToolbarPane.setPrefWrapLength(1280);
         fileToolbarPane.getStyleClass().add(CSS_CLASS_FILE_TOOLBAR);
         
 	PropertiesManager props = PropertiesManager.getPropertiesManager();
@@ -388,11 +414,10 @@ public class ePortfolioGeneratorView {
     
     
     
-    private void initWorkSpaceToolbar() {
-        Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();    
+    private void initWorkSpaceToolbar() {   
 	workspaceModeToolbar = new FlowPane();  
         workspaceModeToolbar.getStyleClass().add(CSS_CLASS_WORKSPACE_MODE_TOOLBAR);
-        workspaceModeToolbar.setMinWidth(1280);
+        workspaceModeToolbar.setPrefWidth(1280);
         // HERE ARE OUR FILE TOOLBAR BUTTONS, NOTE THAT SOME WILL
 	// START AS ENABLED (false), WHILE OTHERS DISABLED (true)
 	PropertiesManager props = PropertiesManager.getPropertiesManager();
@@ -404,7 +429,7 @@ public class ePortfolioGeneratorView {
         
         //add page title
         pageTitleFlowPane = new FlowPane();
-        pageTitleFlowPane.setMaxWidth(180);
+        pageTitleFlowPane.setPrefWrapLength(180);
         pageTitleFlowPane.getStyleClass().add(CSS_CLASS_PAGE_TITLE);
         pageTitle = new Label("Title:");
         pageTitleFlowPane.getChildren().add(pageTitle);
@@ -416,12 +441,12 @@ public class ePortfolioGeneratorView {
         
         //addd Site title and buttons
 	siteToolbar = new FlowPane();  
-        siteToolbar.setMaxWidth(180);
+        siteToolbar.setPrefWrapLength(180);
         siteToolbar.getStyleClass().add(CSS_CLASS_SITE_TOOLBAR);
         
         Label site = new Label("Site Toolbar");
         siteTitle = new FlowPane();
-        siteTitle.setMaxWidth(180);
+        siteTitle.setPrefWrapLength(180);
         siteTitle.getStyleClass().add(CSS_CLASS_SITE_TITLE);
         siteTitle.getChildren().add(site);
         
@@ -450,10 +475,9 @@ public class ePortfolioGeneratorView {
            
 	workspace = new TabPane();  
         workspace.getStyleClass().add(CSS_CLASS_WORKSPACE);
-        workspace.setMinHeight(600);
-        workspace.setMaxHeight(600);
-        workspace.setMinWidth(800);
-        workspace.setMaxWidth(900);
+
+        workspace.setPrefHeight(500);
+        workspace.setPrefWidth(900);
 
 	Tab tab = new Tab();
             tab.setText("Page 1");
@@ -464,11 +488,20 @@ public class ePortfolioGeneratorView {
             workspace.getTabs().add(tab);
     } 
     
+
     
-    private void initName() {     
+    private void initName() {   
+        
+        basicsTitle = new FlowPane();
+        basicsTitle.setPrefWrapLength(200);
+	basicsTitle.getStyleClass().add(CSS_CLASS_COMP_TITLE);
+        
+        basic = new Label("Basics ");
+        basicsTitle.getChildren().add(basic);
+              
 	nameFlowPane = new FlowPane();
-        nameFlowPane.setMaxWidth(200);
-	nameFlowPane.getStyleClass().add(CSS_CLASS_COMP_TOOLBOX);
+        nameFlowPane.setPrefWrapLength(200);
+	nameFlowPane.getStyleClass().add(CSS_CLASS_NAME);
         
         name = new Label("Name: ");
         nameFlowPane.getChildren().add(name);
@@ -482,11 +515,13 @@ public class ePortfolioGeneratorView {
     private void initThemeToolbox() {
         
 	themeToolbox = new FlowPane();
-        themeToolbox.setMaxWidth(200);
+        themeToolbox.setPrefWrapLength(200);
+        themeToolbox.setVgap(5);
+        themeToolbox.setPrefHeight(150);
         themeToolbox.getStyleClass().add(CSS_CLASS_THEMES_TOOLBOX);
         
         themeTitle = new FlowPane();
-        themeTitle.setMaxWidth(200);
+        themeTitle.setPrefWrapLength(200);
         themeTitle.getStyleClass().add(CSS_CLASS_THEME_TITLE);
         Label theme = new Label("Templates");
         themeTitle.getChildren().add(theme);
@@ -540,10 +575,11 @@ public class ePortfolioGeneratorView {
     
       private void initCompToolbox() {     
 	compToolbox = new FlowPane();
-        compToolbox.setMaxWidth(200);
+        compToolbox.setPrefWrapLength(200);
+        compToolbox.setPrefHeight(100);
 	compToolbox.getStyleClass().add(CSS_CLASS_COMP_TOOLBOX);
         
-        compTitle.setMaxWidth(200);
+        compTitle.setPrefWrapLength(200);
 	compTitle.getStyleClass().add(CSS_CLASS_COMP_TITLE);
         
         Label addComp = new Label("Components");
@@ -556,27 +592,28 @@ public class ePortfolioGeneratorView {
         addSSButton = this.initChildButton(compToolbox,	ICON_ADD_SLIDESHOW, TOOLTIP_ADD_SS_COMP,  CSS_CLASS_COMP_TOOLBOX_BUTTON,  false);	
     
         compTools = new FlowPane();
-        compTools.setMaxWidth(200);
-        compTools.setMaxHeight(50);
+        compTools.setPrefWrapLength(200);
+        compTools.setPrefHeight(75);
+        compTools.setHgap(10);
 	compTools.getStyleClass().add(CSS_CLASS_COMP_TOOLS);
        
-        compToolsTitle.setMaxWidth(200);
+        compToolsTitle.setPrefWrapLength(200);
 	compToolsTitle.getStyleClass().add(CSS_CLASS_COMP_TITLE);
         
         Label compToolsLabel = new Label("Component Tools");
         compToolsLabel.setAlignment(Pos.CENTER);
         compToolsTitle.getChildren().add(compToolsLabel);
         
-        removeCompButton = this.initChildButton(compTools,ICON_REMOVE_COMP2, TOOLTIP_REMOVE_COMP,  CSS_CLASS_COMP_TOOLS,  false);
-	editCompButton = this.initChildButton(compTools,ICON_EDIT_COMP,	TOOLTIP_EDIT_COMP, CSS_CLASS_COMP_TOOLS,  false);
+        removeCompButton = this.initChildButton(compTools,ICON_REMOVE_COMP2, TOOLTIP_REMOVE_COMP,  CSS_CLASS_WORKSPACE_MODE_TOOLBAR_BUTTON,  false);
+	editCompButton = this.initChildButton(compTools,ICON_EDIT_COMP,	TOOLTIP_EDIT_COMP, CSS_CLASS_WORKSPACE_MODE_TOOLBAR_BUTTON,  false);
       
       
       }
 
   private void initFooter() {     
 	footerFlowPane = new FlowPane();
-        footerFlowPane.setMaxWidth(200);
-	footerFlowPane.getStyleClass().add(CSS_CLASS_COMP_TOOLBOX);
+        footerFlowPane.setPrefWrapLength(200);
+	footerFlowPane.getStyleClass().add(CSS_CLASS_NAME);
         
         footer = new Label("Footer:");
         footerFlowPane.getChildren().add(footer);
@@ -585,27 +622,49 @@ public class ePortfolioGeneratorView {
         inputFooter.setPromptText("© The Office. Info from Wikipedia.");
         inputFooter.setMaxWidth(130);
         footerFlowPane.getChildren().add(inputFooter);
-    }      
+    }    
+
+    private void initBannerImage() {     
+	bannerFlowPane = new FlowPane();
+        bannerFlowPane.setPrefWrapLength(200);
+        bannerFlowPane.setPrefHeight(50);
+	bannerFlowPane.getStyleClass().add(CSS_CLASS_NAME);
+        
+        bannerImage = new Label("Banner Image:");
+        bannerFlowPane.getChildren().add(bannerImage);
+        
+        openBanner = this.initChildButton(bannerFlowPane,ICON_SELECT_IMAGE, TOOLTIP_ADD_BANNER_IMAGE,  CSS_CLASS_WORKSPACE_MODE_TOOLBAR_BUTTON,  false);	
+         
+
+    }
+    
+    
     private void initWindow(String windowTitle) {
-	// SET THE WINDOW TITLE
+	// set window title and resolutions
 	primaryStage.setTitle(windowTitle);
-
-
-	// AND USE IT TO SIZE THE WINDOW
 	primaryStage.setWidth(1295);
 	primaryStage.setHeight(720);
 
-        // SETUP THE UI, NOTE WE'LL ADD THE WORKSPACE LATER
+        // add flowpanes to sections of the boarderpane
 	epgPane = new BorderPane();
         topBars = new FlowPane();
+        
         leftBars = new FlowPane(Orientation.VERTICAL);
+        leftBars.setPrefWrapLength(700);
+        leftBars.setMaxWidth(200);
+        
         rightBars = new FlowPane(Orientation.VERTICAL);
-   
+        rightBars.setPrefWrapLength(600);
+        rightBars.setMaxWidth(180);
+        
+        
         topBars.getChildren().add(fileToolbarPane);
         topBars.getChildren().add(workspaceModeToolbar);
         
+        leftBars.getChildren().add(basicsTitle);
         leftBars.getChildren().add(nameFlowPane);
         leftBars.getChildren().add(footerFlowPane);
+        leftBars.getChildren().add(bannerFlowPane);
         leftBars.getChildren().add(themeTitle);
         leftBars.getChildren().add(themeToolbox);
         leftBars.getChildren().add(compTitle);

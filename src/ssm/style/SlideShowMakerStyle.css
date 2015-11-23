@@ -1,0 +1,110 @@
+/** 
+ *  This CSS provides all the style settings for
+ *  our JavaFX controls 
+ *
+ *  Icon made by Plainicon from Flaticon.com. Flaticon.com is licensed under Creative Commons BY 3.0
+ *
+ *  @author McKilla Gorilla & Marisa DePasquale
+ */
+
+// vertical toolbar
+.slide_show_edit_vbox {
+    -fx-background-radius: 5.0;
+    -fx-background-color: rgb(240, 220,20);
+    -fx-border-color: rgb(190,190,10);
+    -fx-border-width: 1px;
+    -fx-border-style: dotted solid;
+    -fx-alignment: CENTER;
+    -fx-spacing: 20px;
+
+}
+
+//slide default
+.slide_edit_view {
+    -fx-background-color: rgb(220, 220, 0);
+    -fx-border-color: rgb(240, 220, 10);
+    -fx-border-thickness: 10px;
+    -fx-spacing: 60px;
+    -fx-font: 15px Verdana;
+    -fx-width: 500px;
+    -fx-alignment: CENTER;
+}
+
+//selected slide
+.selected_slide_edit_view{
+    -fx-background-radius: 10.0;
+    -fx-background-color: rgb(250, 250, 70);
+    -fx-border-thickness: 15px;
+    -fx-spacing: 60px;
+    -fx-border-color: rgb(102, 102, 255);
+    -fx-font: 15px Verdana;
+    -fx-alignment: CENTER;
+    -fx-width: 500px;
+}
+
+//vertical buttons
+.vertical_toolbar_button {
+    -fx-background-color: rgb(250, 250, 100);
+    -fx-padding: 10px 10px 10px 10px;
+    -fx-spacing: 50px;
+    -fx-border-color: rgb(200,200,10);
+    -fx-border-radius: 30px;
+    -fx-background-radius: 30px;
+    
+}
+// horizontal buttons
+.horizontal_toolbar_button {
+    -fx-background-color: rgb(218, 218, 71);
+    -fx-padding-left: 50px;
+    -fx-padding-right: 20px;
+    -fx-border-color: rgb(230, 230, 0);
+}
+
+@font-face {
+    font-family: Moon;
+    src: url(Moon Flower.ttf);
+}
+
+// for the language selection
+.language_selection_dialog {
+
+    -fx-font: 18px Tahoma;
+    -fx-background-color: rgb(240, 220,20); 
+    -fx-padding-left: 50px;
+    -fx-padding-right: 20px;
+    -fx-spacing: 20px;
+    -fx-alignment: CENTER;
+    -fx-stroke: black;
+    
+    
+    
+}
+
+//for the horizontal box at the top
+.slide_show_file_pane{
+    
+    -fx-background-color: rgb(242, 228, 33);
+    -fx-border-color: rgb(200,200,10);
+    
+}
+
+//edit workspace bg
+.workspace_bg{
+    
+    -fx-background-color: rgb(200, 200, 90);
+    
+}
+
+//changes color of title section
+.title{
+  
+    -fx-background-color: rgb(242, 242, 160);
+    //-fx-background-color: rgb(148, 159, 228);
+    -fx-border-color: rgb(144, 158, 248);
+    -fx-font: 15px Verdana;
+}
+
+
+
+
+

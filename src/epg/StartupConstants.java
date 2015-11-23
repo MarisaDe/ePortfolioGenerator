@@ -71,6 +71,10 @@ public class StartupConstants {
     //image dialogue buttons
     public static String ICON_SELECT_IMAGE = "SelectImage.png";
     
+    //SS Comp
+    public static String ICON_MOVE_UP = "MoveUp.png";
+    public static String ICON_MOVE_DOWN = "MoveDown.png";
+    
   
     
     // UI SETTINGS
@@ -104,6 +108,7 @@ public class StartupConstants {
     public static String    CSS_CLASS_PAGE_TITLE = "page_title";
     public static String    CSS_CLASS_LIST_PAGES = "list_pages";
     public static String    CSS_CLASS_LIST_PAGES_SCROLL = "list_pages_scroll";
+    public static String    CSS_CLASS_OKCANCEL_BUTTON = "okcancel_button";
     
     // edit component dialogue boxes
     public static String    CSS_CLASS_BANNER_DIALOGUE = "banner_dialogue";
@@ -147,6 +152,7 @@ public class StartupConstants {
     public static String TOOLTIP_SELECT_PAGE = "Select current page to edit";
     
     //Comp toolbar tooltips
+    public static String TOOLTIP_ADD_BANNER_IMAGE = "Add an a banner image to your website";
     public static String TOOLTIP_ADD_IMAGE_COMP = "Add an image component to the current page";
     public static String TOOLTIP_ADD_TEXT_COMP = "Add a text component to the current page";
     public static String TOOLTIP_ADD_VIDEO_COMP = "Add a video component to the current page";

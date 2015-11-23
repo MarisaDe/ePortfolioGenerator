@@ -13,6 +13,8 @@ import epg.dialogue.TextDialogue;
 import epg.dialogue.VideoDialogue;
 import epg.view.ePortfolioGeneratorView;
 import java.net.MalformedURLException;
+import ssm.file.SlideShowFileManager;
+import ssm.view.SlideShowMakerView;
 
 /**
  *
@@ -61,5 +63,10 @@ public class CompController {
     {
         HeaderDialogue addHeader = new HeaderDialogue();
         addHeader.showAndWait();
+    }  
+    public void handleSlideShowRequest() throws MalformedURLException 
+    {
+        SlideShowFileManager initFileManager = new SlideShowFileManager();
+        SlideShowMakerView addSS = new SlideShowMakerView(initFileManager);
     }  
 }

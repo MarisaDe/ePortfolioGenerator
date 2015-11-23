@@ -5,10 +5,11 @@
  */
 package epg.dialogue;
 
+import static epg.StartupConstants.CSS_CLASS_OKCANCEL_BUTTON;
 import static epg.StartupConstants.CSS_CLASS_OKCANCEL_HBOX;
 import static epg.StartupConstants.CSS_CLASS_TEXT_DIALOGUE;
-import static epg.StartupConstants.CSS_CLASS_TEXT_DIALOGUE_BUTTON;
 import static epg.StartupConstants.CSS_CLASS_TEXT_DIALOGUE_HBOX;
+import static epg.StartupConstants.CSS_CLASS_WORKSPACE_MODE_TOOLBAR_BUTTON;
 import static epg.StartupConstants.ICON_ADD_TEXT;
 import static epg.StartupConstants.ICON_HEADER;
 import static epg.StartupConstants.ICON_LIST;
@@ -65,9 +66,11 @@ public class TextDialogue extends Stage{
         selectType = new Label("Select the type of text component you want to create:");
         okButton = new Button("OK");
         okButton.setMinSize(60, 10);
+        okButton.getStyleClass().add(CSS_CLASS_OKCANCEL_BUTTON);
         chooseImage = new Button("Choose Image");
         cancelButton = new Button("Cancel");
         cancelButton.setMinSize(60, 10);
+        cancelButton.getStyleClass().add(CSS_CLASS_OKCANCEL_BUTTON);
         
         vBox = new VBox(30);
         vBox.setMinSize(400, 400);
@@ -83,9 +86,9 @@ public class TextDialogue extends Stage{
         
         // set up button types
 
-        paragraphBtn = initChildButton(hBox, ICON_PARAGRAPH, TOOLTIP_PARAGRAPH, CSS_CLASS_TEXT_DIALOGUE_BUTTON); 
-        listBtn = initChildButton(hBox, ICON_LIST, TOOLTIP_LIST, CSS_CLASS_TEXT_DIALOGUE_BUTTON); 
-        headerBtn = initChildButton(hBox, ICON_HEADER, TOOLTIP_HEADER, CSS_CLASS_TEXT_DIALOGUE_BUTTON); 
+        paragraphBtn = initChildButton(hBox, ICON_PARAGRAPH, TOOLTIP_PARAGRAPH, CSS_CLASS_WORKSPACE_MODE_TOOLBAR_BUTTON); 
+        listBtn = initChildButton(hBox, ICON_LIST, TOOLTIP_LIST, CSS_CLASS_WORKSPACE_MODE_TOOLBAR_BUTTON); 
+        headerBtn = initChildButton(hBox, ICON_HEADER, TOOLTIP_HEADER, CSS_CLASS_WORKSPACE_MODE_TOOLBAR_BUTTON); 
         
         okCancel.getChildren().add(okButton);
         okCancel.getChildren().add(cancelButton);

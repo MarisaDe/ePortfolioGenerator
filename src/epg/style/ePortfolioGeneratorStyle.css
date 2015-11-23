@@ -45,11 +45,16 @@ and open the template in the editor.
     -fx-padding: 5px 10px 5px 10px;
 }
 
+
+.name{
+    
+    -fx-background-color: #AEBEFF;
+}
 .comp_toolbox {
     
-    //-fx-alignment: CENTER;
-    -fx-background-color:lightblue;
-    //-fx-padding: 5px 20px 5px 5px;
+    -fx-alignment: CENTER;
+    -fx-background-color:#AEBEFF;
+   // -fx-padding-top: 20px;
     
 }
 
@@ -62,12 +67,12 @@ and open the template in the editor.
 
 .comp_tools{
     
-    -fx-background-color:lightblue;
+    -fx-background-color:#AEBEFF;
     -fx-alignment: CENTER;
 }
 .comp_title{
     
-     -fx-background-color:lightblue;
+     -fx-background-color:#98ADFF;
      -fx-alignment:CENTER;
      //-fx-padding: 10px 10px 10px 10px;
 }
@@ -79,12 +84,12 @@ and open the template in the editor.
 
 .theme_title{
     -fx-alignment: CENTER;
-    -fx-background-color: #BFB9F6;
+    -fx-background-color: #98ADFF;
 }
 
 .themes_toolbox{
     
-    -fx-background-color: #BFB9F6; 
+    -fx-background-color: #AEBEFF; 
 }
 .themes_toolbox.combo-box{ 
     
@@ -99,17 +104,17 @@ and open the template in the editor.
 }
 
 .page_title{
-    -fx-background-color: #BFB9F6;
+    -fx-background-color: #98ADFF;
 }
 .site_title{
     -fx-alignment: CENTER;
-    -fx-background-color: #BFB9F6;
+    -fx-background-color: #AEBEFF;
 }
 
 .site_toolbar{
     
     -fx-alignment: CENTER;
-    -fx-background-color: #BFB9F6;
+    -fx-background-color: #AEBEFF;
 }
 .site_toolbar .label{
     -fx-right-padding: 10px;
@@ -124,14 +129,14 @@ and open the template in the editor.
 .list_pages{
     
     -fx-alignment: top-left;
-    -fx-background-color: #BFB9F6; 
+    -fx-background-color: #AEBEFF; 
 }
 
 .list_pages_scroll{
     
-    -fx-focus-color: #BFB9F6; //selected border color
-    -fx-background: #BFB9F6; //background
-    -fx-background-color: #BFB9F6; //border color
+    -fx-focus-color: #AEBEFF; //selected border color
+    -fx-background: #AEBEFF; //background
+    -fx-background-color: #AEBEFF; //border color
 }
 
 .combo-box{
@@ -155,7 +160,7 @@ and open the template in the editor.
 .image_dialogue{
     
     -fx-alignment: CENTER;
-    -fx-background-color: #BFB9F6;
+    -fx-background-color: #AEBEFF;
 }
 
 .okCancel_hbox{
@@ -173,12 +178,14 @@ and open the template in the editor.
     -fx-padding-left: 10px;
     -fx-padding-down: 10px;
     -fx-alignment: CENTER;
+    -fx-background-color: #AEBEFF;
 }
 
 .text_dialogue_hbox{
     
     -fx-alignment: CENTER;
     -fx-padding-left: 10px;
+    -fx-background-color: #AEBEFF;
 }
 
 .text_dialogue_button{
@@ -189,5 +196,10 @@ and open the template in the editor.
 .video_dialogue{
     
     -fx-alignment: CENTER;
-    -fx-background-color: #BFB9F6;
+    -fx-background-color: #AEBEFF;
+}
+
+okcancel_button{
+    
+    -fx-background-color:#98ADFF;
 }
