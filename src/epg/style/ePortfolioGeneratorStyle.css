@@ -60,6 +60,11 @@ and open the template in the editor.
     -fx-vertical-spacing:40px;
 }
 
+.comp_tools{
+    
+    -fx-background-color:lightblue;
+    -fx-alignment: CENTER;
+}
 .comp_title{
     
      -fx-background-color:lightblue;

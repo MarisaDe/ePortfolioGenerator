@@ -3,6 +3,7 @@ package epg.view;
 import static epg.StartupConstants.CSS_CLASS_COMP_TITLE;
 import static epg.StartupConstants.CSS_CLASS_COMP_TOOLBOX;
 import static epg.StartupConstants.CSS_CLASS_COMP_TOOLBOX_BUTTON;
+import static epg.StartupConstants.CSS_CLASS_COMP_TOOLS;
 import static epg.StartupConstants.CSS_CLASS_FILE_TOOLBAR;
 import static epg.StartupConstants.CSS_CLASS_FILE_TOOLBAR_BUTTON;
 import static epg.StartupConstants.CSS_CLASS_FILE_TOOLBAR_EXIT_BUTTON;
@@ -40,6 +41,7 @@ import javafx.stage.Stage;
 import static epg.StartupConstants.ICON_ADD_TEXT;
 import static epg.StartupConstants.ICON_ADD_VIDEO;
 import static epg.StartupConstants.ICON_DELETE_PAGE;
+import static epg.StartupConstants.ICON_EDIT_COMP;
 import static epg.StartupConstants.ICON_ENABLE_PAGE;
 import static epg.StartupConstants.PATH_ICONS;
 import static epg.StartupConstants.ICON_WINDOW_LOGO;
@@ -49,6 +51,7 @@ import static epg.StartupConstants.ICON_LOAD_EPG;
 import static epg.StartupConstants.ICON_EXPORT_EPG;
 import static epg.StartupConstants.ICON_EXIT_EPG;
 import static epg.StartupConstants.ICON_PAGE_EDITOR;
+import static epg.StartupConstants.ICON_REMOVE_COMP2;
 import static epg.StartupConstants.ICON_SAVEAS_EPG;
 import static epg.StartupConstants.ICON_SITE_VIEWER;
 import static epg.StartupConstants.STYLE_SHEET_UI;
@@ -58,12 +61,14 @@ import static epg.StartupConstants.TOOLTIP_ADD_SS_COMP;
 import static epg.StartupConstants.TOOLTIP_ADD_TEXT_COMP;
 import static epg.StartupConstants.TOOLTIP_ADD_VIDEO_COMP;
 import static epg.StartupConstants.TOOLTIP_DELETE_PAGE;
+import static epg.StartupConstants.TOOLTIP_EDIT_COMP;
 import static epg.StartupConstants.TOOLTIP_ENABLE_PAGE;
 import static epg.StartupConstants.TOOLTIP_EXIT_EPG;
 import static epg.StartupConstants.TOOLTIP_EXPORT_EPG;
 import static epg.StartupConstants.TOOLTIP_LOAD_EPG;
 import static epg.StartupConstants.TOOLTIP_NEW_EPG;
 import static epg.StartupConstants.TOOLTIP_PAGE_EDITOR;
+import static epg.StartupConstants.TOOLTIP_REMOVE_COMP;
 import static epg.StartupConstants.TOOLTIP_SAVEAS_EPG;
 import static epg.StartupConstants.TOOLTIP_SAVE_EPG;
 import static epg.StartupConstants.TOOLTIP_SITE_VIEWER;
@@ -125,7 +130,11 @@ public class ePortfolioGeneratorView {
 
     //Comp Toolbox section
     FlowPane compTitle = new FlowPane();
+    FlowPane compToolsTitle = new FlowPane();
     FlowPane compToolbox;
+    FlowPane compTools;
+    Button removeCompButton;
+    Button editCompButton;
     Button addImageButton;
     Button addTextButton;
     Button addVideoButton;
@@ -545,7 +554,24 @@ public class ePortfolioGeneratorView {
 	addTextButton = this.initChildButton(compToolbox,ICON_ADD_TEXT,	TOOLTIP_ADD_TEXT_COMP, CSS_CLASS_COMP_TOOLBOX_BUTTON,  false);
         addVideoButton = this.initChildButton(compToolbox,ICON_ADD_VIDEO,TOOLTIP_ADD_VIDEO_COMP, CSS_CLASS_COMP_TOOLBOX_BUTTON,  false);
         addSSButton = this.initChildButton(compToolbox,	ICON_ADD_SLIDESHOW, TOOLTIP_ADD_SS_COMP,  CSS_CLASS_COMP_TOOLBOX_BUTTON,  false);	
-    }
+    
+        compTools = new FlowPane();
+        compTools.setMaxWidth(200);
+        compTools.setMaxHeight(50);
+	compTools.getStyleClass().add(CSS_CLASS_COMP_TOOLS);
+       
+        compToolsTitle.setMaxWidth(200);
+	compToolsTitle.getStyleClass().add(CSS_CLASS_COMP_TITLE);
+        
+        Label compToolsLabel = new Label("Component Tools");
+        compToolsLabel.setAlignment(Pos.CENTER);
+        compToolsTitle.getChildren().add(compToolsLabel);
+        
+        removeCompButton = this.initChildButton(compTools,ICON_REMOVE_COMP2, TOOLTIP_REMOVE_COMP,  CSS_CLASS_COMP_TOOLS,  false);
+	editCompButton = this.initChildButton(compTools,ICON_EDIT_COMP,	TOOLTIP_EDIT_COMP, CSS_CLASS_COMP_TOOLS,  false);
+      
+      
+      }
 
   private void initFooter() {     
 	footerFlowPane = new FlowPane();
@@ -584,6 +610,8 @@ public class ePortfolioGeneratorView {
         leftBars.getChildren().add(themeToolbox);
         leftBars.getChildren().add(compTitle);
         leftBars.getChildren().add(compToolbox);
+        leftBars.getChildren().add(compToolsTitle);
+        leftBars.getChildren().add(compTools);
         
         rightBars.getChildren().add(pageTitleFlowPane);
         rightBars.getChildren().add(siteTitle);

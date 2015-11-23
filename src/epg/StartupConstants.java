@@ -51,6 +51,7 @@ public class StartupConstants {
     
     //page editor workspace button
     public static String ICON_EDIT_COMP = "EditComp.png";
+    public static String ICON_REMOVE_COMP2 = "RemoveComp.png";
     
     //ss related buttons
     public static String ICON_PREVIOUS = "Previous.png";
@@ -88,6 +89,7 @@ public class StartupConstants {
     public static String    CSS_CLASS_NAME = "name";
     public static String    CSS_CLASS_FOOTER = "footer";
     public static String    CSS_CLASS_COMP_TOOLBOX = "comp_toolbox";
+    public static String    CSS_CLASS_COMP_TOOLS = "comp_tools";
     public static String    CSS_CLASS_COMP_TOOLBOX_BUTTON = "comp_toolbox_button";
     public static String    CSS_CLASS_COMP = "comp";
     public static String    CSS_CLASS_SELECTED_COMP = "selected_comp";
@@ -149,6 +151,8 @@ public class StartupConstants {
     public static String TOOLTIP_ADD_TEXT_COMP = "Add a text component to the current page";
     public static String TOOLTIP_ADD_VIDEO_COMP = "Add a video component to the current page";
     public static String TOOLTIP_ADD_SS_COMP = "Add a slide show component to the current page";
+    public static String TOOLTIP_REMOVE_COMP = "Remove the selected component from the current page";
+    public static String TOOLTIP_EDIT_COMP = "Edit the selected component on the current page";
     
     
     //Page Editor Workspace tooltips (comp tooltips)
