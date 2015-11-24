@@ -27,6 +27,7 @@ import static ssm.LanguagePropertyType.TOOLTIP_ADD_SLIDE;
 import static ssm.LanguagePropertyType.TOOLTIP_MOVE_DOWN;
 import static ssm.LanguagePropertyType.TOOLTIP_MOVE_UP;
 import static ssm.LanguagePropertyType.TOOLTIP_REMOVE_SLIDE;
+import static ssm.StartupConstants.CSS_CLASS_HORIZONTAL_TOOLBAR_BUTTON;
 import static ssm.StartupConstants.CSS_CLASS_SELECTED_SLIDE_EDIT_VIEW;
 import static ssm.StartupConstants.CSS_CLASS_SLIDE_EDIT_VIEW;
 import static ssm.StartupConstants.CSS_CLASS_SLIDE_SHOW_EDIT_VBOX;
@@ -172,7 +173,6 @@ public class SlideShowMakerView extends Stage{
 	
 	// THIS WILL GO IN THE LEFT SIDE OF THE SCREEN
 	slideEditToolbar = new VBox();
-        slideEditToolbar.maxHeight(300);
 	slideEditToolbar.getStyleClass().add(CSS_CLASS_SLIDE_SHOW_EDIT_VBOX);
 	addSlideButton = this.initChildButton(slideEditToolbar,		ICON_ADD_SLIDE,	    TOOLTIP_ADD_SLIDE,	    CSS_CLASS_VERTICAL_TOOLBAR_BUTTON,  false);
 	removeSlideButton = this.initChildButton(slideEditToolbar,	ICON_REMOVE_SLIDE,  TOOLTIP_REMOVE_SLIDE,   CSS_CLASS_VERTICAL_TOOLBAR_BUTTON,  true);
@@ -181,14 +181,13 @@ public class SlideShowMakerView extends Stage{
 	
 	// AND THIS WILL GO IN THE CENTER
 	slidesEditorPane = new VBox();
-	slidesEditorScrollPane = new ScrollPane(slidesEditorPane);
-        slidesEditorScrollPane.setMaxWidth(400);
-        slidesEditorPane.getStyleClass().add(CSS_CLASS_WORKSPACE_BG);
+        slidesEditorPane.getStyleClass().add(CSS_CLASS_WORKSPACE_BG); 
         
-	//initTitleControls();
-	
+	slidesEditorScrollPane = new ScrollPane();   
+	slidesEditorScrollPane.setContent(slidesEditorPane);
+	slidesEditorScrollPane.setPrefWidth(410);
+        
 	// NOW PUT THESE TWO IN THE WORKSPACE
-	workspace.getChildren().add(slideEditToolbar);
 	workspace.getChildren().add(slidesEditorScrollPane);
     }
 
@@ -196,7 +195,7 @@ public class SlideShowMakerView extends Stage{
 	// FIRST THE FILE CONTROLS
 	fileController = new FileController(this, fileManager);
 	okButton.setOnAction(e -> {
-	    fileController.handleNewSlideShowRequest();
+	    primaryStage.hide();
 	});
 	cancelButton.setOnAction(e -> {
 	    primaryStage.hide();
@@ -223,7 +222,8 @@ public class SlideShowMakerView extends Stage{
      * the application window. These are related to file management.
      */
     private void initFileToolbar() {
-	okCancelPane = new FlowPane();       
+	okCancelPane = new FlowPane();  
+        okCancelPane.setHgap(50);
         okCancelPane.getStyleClass().add(CSS_CLASS_SLIDE_SHOW_FILE_PANE);
         okCancelPane.setPrefHeight(40);
 
@@ -231,10 +231,12 @@ public class SlideShowMakerView extends Stage{
 	
         okButton = new Button("OK");
         okButton.setMinSize(60, 10);
+        okButton.getStyleClass().add(CSS_CLASS_HORIZONTAL_TOOLBAR_BUTTON);
         
         
         cancelButton = new Button("CANCEL");
         cancelButton.setMinSize(60, 10);
+        cancelButton.getStyleClass().add(CSS_CLASS_HORIZONTAL_TOOLBAR_BUTTON);
         
         okCancelPane.getChildren().add(okButton);
         okCancelPane.getChildren().add(cancelButton);
@@ -244,15 +246,15 @@ public class SlideShowMakerView extends Stage{
     private void initWindow(String windowTitle) {
 	// window title and dimensions
 	primaryStage.setTitle(windowTitle);
-        primaryStage.setMinWidth(950);
-        primaryStage.setMinHeight(650);
+        primaryStage.setWidth(800);
+        primaryStage.setHeight(700);
         
         
         // SETUP THE UI, NOTE WE'LL ADD THE WORKSPACE LATER
 	ssmPane = new BorderPane();
 	ssmPane.setTop(okCancelPane);	
         ssmPane.setLeft(slideEditToolbar);
-        ssmPane.setCenter(slidesEditorPane);
+        ssmPane.setCenter(workspace);
 	primaryScene = new Scene(ssmPane);
 
 

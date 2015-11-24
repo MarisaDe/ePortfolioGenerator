@@ -41,7 +41,7 @@ and open the template in the editor.
 .workspace_mode_toolbar_button{
     
     -fx-alignment: CENTER;
-    -fx-background-color:#C3CFFF;
+    -fx-background-color:#C3CFFF; //even lighter blue
     -fx-padding: 5px 10px 5px 10px;
 }
 
@@ -201,5 +201,6 @@ and open the template in the editor.
 
 okcancel_button{
     
-    -fx-background-color:#98ADFF;
+    -fx-background-color: #C3CFFF;
+    -fx-border-color: #C3CFFF;
 }

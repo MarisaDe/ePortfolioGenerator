@@ -40,7 +40,7 @@ public class SlideEditView extends HBox {
     ImageSelectionController imageController;
 
     /**
-     * THis constructor initializes the full UI for this component, using
+     * This constructor initializes the full UI for this component, using
      * the initSlide data for initializing values./
      * 
      * @param initSlide The slide to be edited by this component.
@@ -48,7 +48,7 @@ public class SlideEditView extends HBox {
     public SlideEditView(Slide initSlide) {
 	// FIRST SELECT THE CSS STYLE CLASS FOR THIS CONTAINER
 	this.getStyleClass().add(CSS_CLASS_SLIDE_EDIT_VIEW);
-	
+        
 	// KEEP THE SLIDE FOR LATER
 	slide = initSlide;
 	
@@ -57,9 +57,8 @@ public class SlideEditView extends HBox {
 	updateSlideImage();
 
 	// SETUP THE CAPTION CONTROLS
-	captionVBox = new VBox();
-	PropertiesManager props = PropertiesManager.getPropertiesManager();
-	captionLabel = new Label(props.getProperty(LanguagePropertyType.LABEL_CAPTION));
+	captionVBox = new VBox(5);
+	captionLabel = new Label("Caption:");
 	captionTextField = new TextField();
 	captionTextField.setText(slide.getCaption());
 	captionVBox.getChildren().add(captionLabel);

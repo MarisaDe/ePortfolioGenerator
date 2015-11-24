@@ -35,6 +35,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import properties_manager.PropertiesManager;
+import static ssm.StartupConstants.CSS_CLASS_HORIZONTAL_TOOLBAR_BUTTON;
 
 /**
  *
@@ -47,7 +48,6 @@ public class TextDialogue extends Stage{
     CompController compController;
     Label textComp;
     Label selectType;
-    Button chooseImage;
     Button headerBtn;
     Button paragraphBtn;
     Button listBtn;
@@ -67,7 +67,8 @@ public class TextDialogue extends Stage{
         okButton = new Button("OK");
         okButton.setMinSize(60, 10);
         okButton.getStyleClass().add(CSS_CLASS_OKCANCEL_BUTTON);
-        chooseImage = new Button("Choose Image");
+        
+        
         cancelButton = new Button("Cancel");
         cancelButton.setMinSize(60, 10);
         cancelButton.getStyleClass().add(CSS_CLASS_OKCANCEL_BUTTON);

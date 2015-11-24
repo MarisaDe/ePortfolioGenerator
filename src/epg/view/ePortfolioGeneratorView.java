@@ -507,7 +507,7 @@ public class ePortfolioGeneratorView {
         nameFlowPane.getChildren().add(name);
         
         inputName = new TextField();
-        inputName.setPromptText("Pam Beesly");
+        inputName.setPromptText("Enter name here");
         inputName.setMaxWidth(130);
         nameFlowPane.getChildren().add(inputName);
     }
@@ -619,7 +619,7 @@ public class ePortfolioGeneratorView {
         footerFlowPane.getChildren().add(footer);
         
         inputFooter = new TextField();
-        inputFooter.setPromptText("© The Office. Info from Wikipedia.");
+        inputFooter.setPromptText("Enter footer here");
         inputFooter.setMaxWidth(130);
         footerFlowPane.getChildren().add(inputFooter);
     }    

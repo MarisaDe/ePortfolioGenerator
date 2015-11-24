@@ -7,6 +7,7 @@ package epg.dialogue;
 
 import static epg.StartupConstants.CSS_CLASS_HEADER_VBOX;
 import static epg.StartupConstants.CSS_CLASS_IMAGE_DIALOGUE;
+import static epg.StartupConstants.CSS_CLASS_OKCANCEL_BUTTON;
 import static epg.StartupConstants.CSS_CLASS_OKCANCEL_HBOX;
 import static epg.StartupConstants.ICON_ADD_IMAGE;
 import static epg.StartupConstants.ICON_SELECT_IMAGE;
@@ -27,6 +28,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import static ssm.StartupConstants.CSS_CLASS_HORIZONTAL_TOOLBAR_BUTTON;
 
 /**
  *
@@ -67,7 +69,11 @@ public class ImageDialogue extends Stage{
         
         okButton = new Button("OK");
         okButton.setMinSize(60, 10);
+        okButton.getStyleClass().add(CSS_CLASS_OKCANCEL_BUTTON);
+        
+        
         chooseImageBtn = new Button();
+        chooseImageBtn.getStyleClass().add(CSS_CLASS_OKCANCEL_BUTTON);
         
         String imagePath = "file:" + PATH_ICONS + ICON_SELECT_IMAGE;
 	Image buttonImage = new Image(imagePath);
