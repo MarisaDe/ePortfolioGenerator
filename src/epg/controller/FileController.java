@@ -45,13 +45,14 @@ public class FileController {
         WebView browser = new WebView();
         WebEngine webEngine = browser.getEngine();
         browser.setMaxHeight(565);
+        browser.setPrefWidth(900);
         
         //Opens webview of that specific index file.
         File f = new File("./DummyPage/2.html");
         webEngine.load(f.toURI().toURL().toString());
         
         hbox.getChildren().add(browser);
-        hbox.setAlignment(Pos.CENTER); 
+       // hbox.setAlignment(Pos.CENTER); 
         tab.setContent(hbox);
         ui.getWorkSpace().getTabs().add(tab);
         

@@ -476,7 +476,7 @@ public class ePortfolioGeneratorView {
 	workspace = new TabPane();  
         workspace.getStyleClass().add(CSS_CLASS_WORKSPACE);
 
-        workspace.setPrefHeight(500);
+      //  workspace.setMaxHeight(500);
         workspace.setPrefWidth(900);
 
 	Tab tab = new Tab();

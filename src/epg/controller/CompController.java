@@ -41,7 +41,7 @@ public class CompController {
     public void handleAddTextRequest() throws MalformedURLException 
     {
         TextDialogue addText = new TextDialogue();
-        addText.showAndWait();
+        addText.show();
     }   
     
     public void handleAddVideoRequest() throws MalformedURLException 
@@ -52,17 +52,17 @@ public class CompController {
     public void handleAddParagraphRequest() throws MalformedURLException 
     {
         ParagraphDialogue addParagraph = new ParagraphDialogue();
-        addParagraph.showAndWait();
+        addParagraph.show();
     }     
     public void handleAddListRequest() throws MalformedURLException 
     {
         ListDialogue addList = new ListDialogue();
-        addList.showAndWait();
+        addList.show();
     }     
     public void handleAddHeaderRequest() throws MalformedURLException 
     {
         HeaderDialogue addHeader = new HeaderDialogue();
-        addHeader.showAndWait();
+        addHeader.show();
     }  
     public void handleSlideShowRequest() throws MalformedURLException 
     {

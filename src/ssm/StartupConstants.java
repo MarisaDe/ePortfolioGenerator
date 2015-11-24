@@ -13,7 +13,7 @@ public class StartupConstants {
     public static String PATH_DATA = "./data/";
     public static String PATH_SLIDE_SHOWS = PATH_DATA + "slide_shows/";
     public static String PATH_IMAGES = "./images/";
-    public static String PATH_ICON2 = PATH_IMAGES + "icons/";
+    public static String PATH_ICON2 = "./icons/";
     public static String PATH_SLIDE_SHOW_IMAGES = PATH_IMAGES + "slide_show_images/";
     public static String PATH_SS_CSS = "ssm/style/";
     public static String STYLE_SHEET_SS_UI = PATH_SS_CSS + "SlideShowMakerStyle.css";

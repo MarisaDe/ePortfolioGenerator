@@ -164,4 +164,8 @@ public class SlideShowModel {
 	    selectedSlide = slides.get(index);
 	}
     }    
+
+    public void addSlide(String DEFAULT_SLIDE_IMAGE, String PATH_SLIDE_SHOW_IMAGES, LanguagePropertyType languagePropertyType) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

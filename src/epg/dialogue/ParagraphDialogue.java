@@ -7,9 +7,12 @@ package epg.dialogue;
 
 import static epg.StartupConstants.CSS_CLASS_IMAGE_DIALOGUE;
 import static epg.StartupConstants.CSS_CLASS_OKCANCEL_HBOX;
+import static epg.StartupConstants.CSS_CLASS_WORKSPACE_MODE_TOOLBAR_BUTTON;
+import static epg.StartupConstants.ICON_LINK;
 import static epg.StartupConstants.ICON_PARAGRAPH;
 import static epg.StartupConstants.PATH_ICONS;
 import static epg.StartupConstants.STYLE_SHEET_UI;
+import static epg.StartupConstants.TOOLTIP_LINK;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
@@ -65,6 +68,7 @@ public class ParagraphDialogue extends Stage{
       fontChoice = new ComboBox(fontOptions);
       fontChoice.setValue("default");
       
+              
       inputParagraph = new TextArea();
       inputParagraph.setPromptText("Enter Paragraph here");
       inputParagraph.setMaxSize(300, 260);
@@ -84,10 +88,13 @@ public class ParagraphDialogue extends Stage{
       vBox.getStyleClass().add(CSS_CLASS_IMAGE_DIALOGUE);
       
       
-      fontBox = new HBox(10);
+      fontBox = new HBox(15);
       fontBox.getStyleClass().add(CSS_CLASS_IMAGE_DIALOGUE);
       fontBox.getChildren().add(font);
       fontBox.getChildren().add(fontChoice);
+      
+      link = new Button();
+      link = initChildButton(fontBox, ICON_LINK, TOOLTIP_LINK,CSS_CLASS_WORKSPACE_MODE_TOOLBAR_BUTTON);
       
       
       paragraphBox = new HBox(5);

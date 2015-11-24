@@ -5,6 +5,7 @@ import static epg.StartupConstants.PATH_ICONS;
 import static epg.StartupConstants.STYLE_SHEET_UI;
 import static epg.StartupConstants.ICON_MOVE_UP;
 import static epg.StartupConstants.ICON_MOVE_DOWN;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -35,6 +36,8 @@ import static ssm.StartupConstants.CSS_CLASS_TITLE;
 import static ssm.StartupConstants.CSS_CLASS_WORKSPACE_BG;
 import static ssm.StartupConstants.ICON_ADD_SLIDE;
 import static ssm.StartupConstants.ICON_REMOVE_SLIDE;
+import static ssm.StartupConstants.PATH_ICON2;
+import static ssm.StartupConstants.STYLE_SHEET_SS_UI;
 import ssm.controller.FileController;
 import ssm.controller.SlideShowEditController;
 import ssm.model.Slide;
@@ -156,7 +159,7 @@ public class SlideShowMakerView extends Stage{
         Image windowImage = new Image(windowImagePath); 
         primaryStage.getIcons().add((windowImage));  
         
-        primaryScene.getStylesheets().add(STYLE_SHEET_UI);
+        primaryScene.getStylesheets().add(STYLE_SHEET_SS_UI);
 	primaryStage.setScene(primaryScene);
 	primaryStage.show();
     }
@@ -169,8 +172,9 @@ public class SlideShowMakerView extends Stage{
 	
 	// THIS WILL GO IN THE LEFT SIDE OF THE SCREEN
 	slideEditToolbar = new VBox();
+        slideEditToolbar.maxHeight(300);
 	slideEditToolbar.getStyleClass().add(CSS_CLASS_SLIDE_SHOW_EDIT_VBOX);
-	addSlideButton = this.initChildButton(slideEditToolbar,		ICON_ADD_SLIDE,	    TOOLTIP_ADD_SLIDE,	    CSS_CLASS_VERTICAL_TOOLBAR_BUTTON,  true);
+	addSlideButton = this.initChildButton(slideEditToolbar,		ICON_ADD_SLIDE,	    TOOLTIP_ADD_SLIDE,	    CSS_CLASS_VERTICAL_TOOLBAR_BUTTON,  false);
 	removeSlideButton = this.initChildButton(slideEditToolbar,	ICON_REMOVE_SLIDE,  TOOLTIP_REMOVE_SLIDE,   CSS_CLASS_VERTICAL_TOOLBAR_BUTTON,  true);
 	moveSlideUpButton = this.initChildButton(slideEditToolbar,	ICON_MOVE_UP,	    TOOLTIP_MOVE_UP,	    CSS_CLASS_VERTICAL_TOOLBAR_BUTTON,  true);
 	moveSlideDownButton = this.initChildButton(slideEditToolbar,	ICON_MOVE_DOWN,	    TOOLTIP_MOVE_DOWN,	    CSS_CLASS_VERTICAL_TOOLBAR_BUTTON,  true);
@@ -178,8 +182,10 @@ public class SlideShowMakerView extends Stage{
 	// AND THIS WILL GO IN THE CENTER
 	slidesEditorPane = new VBox();
 	slidesEditorScrollPane = new ScrollPane(slidesEditorPane);
-        //slidesEditorPane.getStyleClass().add(CSS_CLASS_WORKSPACE_BG);
-	initTitleControls();
+        slidesEditorScrollPane.setMaxWidth(400);
+        slidesEditorPane.getStyleClass().add(CSS_CLASS_WORKSPACE_BG);
+        
+	//initTitleControls();
 	
 	// NOW PUT THESE TWO IN THE WORKSPACE
 	workspace.getChildren().add(slideEditToolbar);
@@ -193,7 +199,7 @@ public class SlideShowMakerView extends Stage{
 	    fileController.handleNewSlideShowRequest();
 	});
 	cancelButton.setOnAction(e -> {
-	    fileController.handleLoadSlideShowRequest();
+	    primaryStage.hide();
 	});
 	
 	// THEN THE SLIDE SHOW EDIT CONTROLS
@@ -219,11 +225,13 @@ public class SlideShowMakerView extends Stage{
     private void initFileToolbar() {
 	okCancelPane = new FlowPane();       
         okCancelPane.getStyleClass().add(CSS_CLASS_SLIDE_SHOW_FILE_PANE);
+        okCancelPane.setPrefHeight(40);
 
 	PropertiesManager props = PropertiesManager.getPropertiesManager();
 	
         okButton = new Button("OK");
         okButton.setMinSize(60, 10);
+        
         
         cancelButton = new Button("CANCEL");
         cancelButton.setMinSize(60, 10);
@@ -234,15 +242,17 @@ public class SlideShowMakerView extends Stage{
     }
 
     private void initWindow(String windowTitle) {
-	// SET THE WINDOW TITLE
+	// window title and dimensions
 	primaryStage.setTitle(windowTitle);
-     
-        primaryStage.setMinWidth(600);
-        primaryStage.setMinHeight(400);
+        primaryStage.setMinWidth(950);
+        primaryStage.setMinHeight(650);
+        
+        
         // SETUP THE UI, NOTE WE'LL ADD THE WORKSPACE LATER
 	ssmPane = new BorderPane();
 	ssmPane.setTop(okCancelPane);	
         ssmPane.setLeft(slideEditToolbar);
+        ssmPane.setCenter(slidesEditorPane);
 	primaryScene = new Scene(ssmPane);
 
 
@@ -260,7 +270,7 @@ public class SlideShowMakerView extends Stage{
 	    String cssClass,
 	    boolean disabled) {
 	PropertiesManager props = PropertiesManager.getPropertiesManager();
-	String imagePath = "file:" + PATH_ICONS + iconFileName;
+	String imagePath = "file:" + PATH_ICON2 + iconFileName;
 	Image buttonImage = new Image(imagePath);
 	Button button = new Button();
 	button.getStyleClass().add(cssClass);
@@ -285,11 +295,11 @@ public class SlideShowMakerView extends Stage{
      * Uses the slide show data to reload all the components for
      * slide editing.
      * 
-     * @param slideShowToLoad SLide show being reloaded.
+     * @param slideShowToLoad Slide show being reloaded.
      */
     public void reloadSlideShowPane() {
 	slidesEditorPane.getChildren().clear();
-	reloadTitleControls();
+	//reloadTitleControls();
 	for (Slide slide : slideShow.getSlides()) {
 	    SlideEditView slideEditor = new SlideEditView(slide);
 	    if (slideShow.isSelectedSlide(slide))
