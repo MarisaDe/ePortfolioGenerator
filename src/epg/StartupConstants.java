@@ -109,6 +109,7 @@ public class StartupConstants {
     public static String    CSS_CLASS_LIST_PAGES = "list_pages";
     public static String    CSS_CLASS_LIST_PAGES_SCROLL = "list_pages_scroll";
     public static String    CSS_CLASS_OKCANCEL_BUTTON = "okcancel_button";
+    public static String    CSS_CLASS_P_COMP_EXAMPLE = "p_comp_example";
     
     // edit component dialogue boxes
     public static String    CSS_CLASS_BANNER_DIALOGUE = "banner_dialogue";

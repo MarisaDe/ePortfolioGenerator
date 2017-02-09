@@ -12,6 +12,7 @@ import static epg.StartupConstants.CSS_CLASS_LIST_PAGES_SCROLL;
 import static epg.StartupConstants.CSS_CLASS_NAME;
 import static epg.StartupConstants.CSS_CLASS_PAGE_EDITOR;
 import static epg.StartupConstants.CSS_CLASS_PAGE_TITLE;
+import static epg.StartupConstants.CSS_CLASS_P_COMP_EXAMPLE;
 import static epg.StartupConstants.CSS_CLASS_SITE_TITLE;
 import static epg.StartupConstants.CSS_CLASS_SITE_TOOLBAR;
 import static epg.StartupConstants.CSS_CLASS_SITE_TOOLBAR_BUTTON;
@@ -475,17 +476,54 @@ public class ePortfolioGeneratorView {
            
 	workspace = new TabPane();  
         workspace.getStyleClass().add(CSS_CLASS_WORKSPACE);
-
-      //  workspace.setMaxHeight(500);
         workspace.setPrefWidth(900);
+        
+        //DUMMY GUIS
+        
+        VBox comps = new VBox();
+        
+        //Paragraph gui
+        HBox pComp = new HBox();
+        pComp.setMaxWidth(200);
+        pComp.setPrefHeight(100);
+        pComp.getStyleClass().add(CSS_CLASS_P_COMP_EXAMPLE);
+        Label pLabel = new Label("Paragraph component");
+        pComp.getChildren().add(pLabel);
+        pComp.setOnMouseClicked(e -> {
+            try {
+                compController.handleAddParagraphRequest();
+            } catch (MalformedURLException ex) {
+                Logger.getLogger(ePortfolioGeneratorView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+	});
 
+        comps.getChildren().add(pComp);
+        //IMAGE GUI
+        VBox imgComp = new VBox();
+        imgComp.setMaxWidth(200);
+        imgComp.setPrefHeight(100);
+        imgComp.getStyleClass().add(CSS_CLASS_P_COMP_EXAMPLE);
+        Label imgLabel = new Label("Image component");
+        Label heightLabel = new Label("Height: default");
+        Label widthLabel = new Label("Width: default");
+        Label floatLabel = new Label("Float: Neither");
+        imgComp.getChildren().add(imgLabel);
+        imgComp.getChildren().add(heightLabel);
+        imgComp.getChildren().add(widthLabel);
+        imgComp.getChildren().add(floatLabel);
+        imgComp.setOnMouseClicked(e -> {
+            try {
+                compController.handleAddImageRequest();
+            } catch (MalformedURLException ex) {
+                Logger.getLogger(ePortfolioGeneratorView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+	});
+   
+        comps.getChildren().add(imgComp);
 	Tab tab = new Tab();
-            tab.setText("Page 1");
-            HBox hbox = new HBox();
-            hbox.getChildren().add(new Label("Page 1"));
-            hbox.setAlignment(Pos.CENTER); 
-            tab.setContent(hbox);
-            workspace.getTabs().add(tab);
+        tab.setText("Page 1");
+        tab.setContent(comps);
+        workspace.getTabs().add(tab);
     } 
     
 

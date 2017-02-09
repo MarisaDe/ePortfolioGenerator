@@ -1,0 +1,71 @@
+/** 
+ *  This CSS provides all the style settings for
+ *  our JavaFX controls 
+ *
+ *  Icon made by Plainicon from Flaticon.com. Flaticon.com is licensed under Creative Commons BY 3.0
+ *
+ *  @author McKilla Gorilla & Marisa DePasquale
+ */
+
+// vertical toolbar
+.slide_show_edit_vbox {
+    -fx-background-color: #AEBEFF;
+    -fx-border-color: #AEBEFF;
+    -fx-alignment: CENTER;
+    -fx-spacing: 20px;
+
+}
+
+//slide default
+.slide_edit_view {
+    -fx-background-color: #AEBEFF;
+    -fx-border-color: lightgrey;
+    -fx-font: 15px Verdana;
+}
+
+//selected slide
+.selected_slide_edit_view{
+
+    -fx-background-color: #C3CFFF;
+    -fx-border-thickness: 15px;
+    -fx-border-color: #AEBEFF;
+    -fx-font: 15px Verdana;
+}
+
+//vertical buttons
+.vertical_toolbar_button {
+    -fx-background-color: #C3CFFF;
+    -fx-padding: 10px 10px 10px 10px;
+    -fx-spacing: 50px;
+    -fx-border-color: #C3CFFF;
+    -fx-border-radius: 30px;
+    -fx-background-radius: 30px;
+    
+}
+// horizontal buttons
+.horizontal_toolbar_button {
+    -fx-background-color: #C3CFFF;
+    -fx-border-color: #C3CFFF;
+    -fx-alignment: CENTER;
+}
+
+@font-face {
+    font-family: Moon;
+    src: url(Moon Flower.ttf);
+}
+
+//for the horizontal box at the top
+.slide_show_file_pane{
+    
+    -fx-background-color: #98ADFF;
+    -fx-alignment: CENTER;
+    
+}
+
+//edit workspace bg
+.workspace_bg{
+    
+    -fx-background-color: lightgrey;
+    
+}
+
